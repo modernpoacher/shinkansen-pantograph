@@ -1,6 +1,6 @@
 {
   "name": "react-valves",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "React Valves",
   "main": "./index.js",
   "keywords": [
@@ -25,12 +25,10 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "babel-core": "^6.25.0",
-    "react": "^15.6.1",
-    "react-router": "3.0.5"
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
