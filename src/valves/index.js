@@ -23,7 +23,7 @@ const OMEGA = {
 const EMBARK = {
   ROUTE: 'EMBARK_ROUTE',
   FETCH: 'EMBARK_FETCH',
-  STORE: 'EMBARK_STORE',
+  STORE: 'EMBARK_STORE'
 }
 
 const DEBARK = {
