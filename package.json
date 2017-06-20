@@ -30,8 +30,8 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
-    "react-boiler": "^0.0.1",
-    "react-gears": "^0.6.0"
+    "locomotive-boiler": "^0.0.1",
+    "locomotive-gears": "^0.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
