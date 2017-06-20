@@ -1,6 +1,6 @@
 {
   "name": "locomotive-valves",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Locomotive Valves",
   "main": "./index.js",
   "keywords": [
@@ -30,8 +30,8 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
-    "locomotive-boiler": "^0.0.1",
-    "locomotive-gears": "^0.0.1"
+    "locomotive-boiler": "^0.0.2",
+    "locomotive-gears": "^0.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

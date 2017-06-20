@@ -1,10 +1,10 @@
 import {
   Boiler
-} from 'react-boiler'
+} from 'locomotive-boiler'
 
 import {
   Gears
-} from 'react-gears'
+} from 'locomotive-gears'
 
 const ALPHA = {
   CHANGE: 'ALPHA_CHANGE',
