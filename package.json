@@ -1,15 +1,18 @@
 {
-  "name": "react-valves",
-  "version": "0.5.0",
-  "description": "React Valves",
+  "name": "locomotive-valves",
+  "version": "0.0.1",
+  "description": "Locomotive Valves",
   "main": "./index.js",
   "keywords": [
+    "Locomotive",
+    "Valves",
+    "Zashiki Karakuri",
     "React",
     "Router"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com/modernpoacher/React.Valves.git"
+    "url": "git@github.com/modernpoacher/Locomotive.Valves.git"
   },
   "author": "Jonathan Perry for Modern Poacher",
   "license": "MIT",
@@ -27,7 +30,7 @@
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
-    "react-boiler": "0.0.1",
+    "react-boiler": "^0.0.1",
     "react-gears": "^0.6.0"
   },
   "devDependencies": {
