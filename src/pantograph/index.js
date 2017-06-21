@@ -3,8 +3,8 @@ import {
 } from 'shinkansen-boiler'
 
 import {
-  Gears
-} from 'shinkansen-gears'
+  Rails
+} from 'shinkansen-rails'
 
 const ALPHA = {
   CHANGE: 'ALPHA_CHANGE',
@@ -46,7 +46,7 @@ function REDIRECT_TO_ALPHA ({ history, alpha }) { // console.log('REDIRECT_TO_AL
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Gears.path({ [Boiler.ALPHA]: alpha }, Boiler.ALPHA_PATTERN)
+  const pathname = Rails.path({ [Boiler.ALPHA]: alpha }, Boiler.ALPHA_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -56,7 +56,7 @@ function REDIRECT_TO_OMEGA ({ history, alpha, omega }) { // console.log('REDIREC
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Gears.path({ [Boiler.ALPHA]: alpha, [Boiler.OMEGA]: omega }, Boiler.OMEGA_PATTERN)
+  const pathname = Rails.path({ [Boiler.ALPHA]: alpha, [Boiler.OMEGA]: omega }, Boiler.OMEGA_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -66,7 +66,7 @@ function REDIRECT_TO_EMBARK ({ history, embark }) { // console.log('REDIRECT_TO_
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Gears.path({ [Boiler.EMBARK]: embark }, Boiler.EMBARK_PATTERN)
+  const pathname = Rails.path({ [Boiler.EMBARK]: embark }, Boiler.EMBARK_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -76,7 +76,7 @@ function REDIRECT_TO_DEBARK ({ history, debark }) { // console.log('REDIRECT_TO_
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Gears.path({ [Boiler.DEBARK]: debark }, Boiler.DEBARK_PATTERN)
+  const pathname = Rails.path({ [Boiler.DEBARK]: debark }, Boiler.DEBARK_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -91,7 +91,7 @@ function REDIRECT ({ [Boiler.ALPHA]: alpha, [Boiler.OMEGA]: omega, [Boiler.EMBAR
   } else if (alpha) {
     REDIRECT_TO_ALPHA({ alpha, history })
   } else if (omega) {
-    throw Error('Valves encountered a route error in REDIRECT()')
+    throw Error('Pantograph encountered a route error in REDIRECT()')
   }
 }
 
@@ -111,30 +111,30 @@ function redirectFromDebark ({ [Boiler.DEBARK]: { redirect }, history }) { // co
   if (redirect) REDIRECT({ ...redirect, history })
 }
 
-function poppet ({ action: { type, ...rest } = ACTION, store = STORE, history = HISTORY }) {
+function graphite ({ action: { type, ...rest } = ACTION, store = STORE, history = HISTORY }) {
   switch (type) {
-    case 'OMEGA_QUERY': // console.log('Valves.poppet():OMEGA_QUERY', { ...rest, type }) // eslint-disable-line
+    case 'OMEGA_QUERY': // console.log('Pantograph.graphite():OMEGA_QUERY', { ...rest, type }) // eslint-disable-line
       {
         const state = store.getState()
 
         redirectFromOmega({ ...state, history })
       }
       break
-    case 'EMBARK_ROUTE': // console.log('Valves.poppet():EMBARK_ROUTE', { ...rest, type }) // eslint-disable-line
+    case 'EMBARK_ROUTE': // console.log('Pantograph.graphite():EMBARK_ROUTE', { ...rest, type }) // eslint-disable-line
       {
         const state = store.getState()
 
         redirectFromEmbark({ ...state, history })
       }
       break
-    case 'DEBARK_ROUTE': // console.log('Valves.poppet():DEBARK_ROUTE', { ...rest, type }) // eslint-disable-line
+    case 'DEBARK_ROUTE': // console.log('Pantograph.graphite():DEBARK_ROUTE', { ...rest, type }) // eslint-disable-line
       {
         const state = store.getState()
 
         redirectFromDebark({ ...state, history })
       }
       break
-    case 'ALPHA_QUERY': // console.log('Valves.poppet():ALPHA_QUERY', { ...rest, type }) // eslint-disable-line
+    case 'ALPHA_QUERY': // console.log('Pantograph.graphite():ALPHA_QUERY', { ...rest, type }) // eslint-disable-line
       {
         const state = store.getState()
 
@@ -146,7 +146,7 @@ function poppet ({ action: { type, ...rest } = ACTION, store = STORE, history = 
   return { ...rest, type }
 }
 
-export class Valves {
+export class Pantograph {
   static get ALPHA () {
     return ALPHA
   }
@@ -163,5 +163,5 @@ export class Valves {
     return DEBARK
   }
 
-  static poppet = poppet
+  static graphite = graphite
 }

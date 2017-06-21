@@ -1,18 +1,18 @@
 {
-  "name": "shinkansen-valves",
-  "version": "0.0.1",
-  "description": "Shinkansen Valves",
+  "name": "shinkansen-pantograph",
+  "version": "0.0.2",
+  "description": "Shinkansen Pantograph",
   "main": "./index.js",
   "keywords": [
     "Shinkansen",
-    "Valves",
+    "Pantograph",
     "Zashiki Karakuri",
     "React",
     "Router"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com/modernpoacher/Shinkansen.Valves.git"
+    "url": "git@github.com/modernpoacher/Shinkansen.Pantograph.git"
   },
   "author": "Jonathan Perry for Modern Poacher",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "shinkansen-boiler": "^0.0.1",
-    "shinkansen-gears": "^0.0.1"
+    "shinkansen-rails": "^0.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
