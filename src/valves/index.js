@@ -1,10 +1,10 @@
 import {
   Boiler
-} from 'locomotive-boiler'
+} from 'shinkansen-boiler'
 
 import {
   Gears
-} from 'locomotive-gears'
+} from 'shinkansen-gears'
 
 const ALPHA = {
   CHANGE: 'ALPHA_CHANGE',
@@ -60,7 +60,6 @@ function REDIRECT_TO_OMEGA ({ history, alpha, omega }) { // console.log('REDIREC
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
-
 
 function REDIRECT_TO_EMBARK ({ history, embark }) { // console.log('REDIRECT_TO_EMBARK', embark) // eslint-disable-line
   const {
