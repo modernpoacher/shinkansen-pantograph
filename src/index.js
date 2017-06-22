@@ -1,3 +1,3 @@
 export {
   Pantograph
-} from './valves'
+} from './pantograph'

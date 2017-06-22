@@ -1,6 +1,6 @@
 import {
-  Boiler
-} from 'shinkansen-boiler'
+  Signals
+} from 'shinkansen-signals'
 
 import {
   Rails
@@ -46,7 +46,7 @@ function REDIRECT_TO_ALPHA ({ history, alpha }) { // console.log('REDIRECT_TO_AL
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Boiler.ALPHA]: alpha }, Boiler.ALPHA_PATTERN)
+  const pathname = Rails.path({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -56,7 +56,7 @@ function REDIRECT_TO_OMEGA ({ history, alpha, omega }) { // console.log('REDIREC
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Boiler.ALPHA]: alpha, [Boiler.OMEGA]: omega }, Boiler.OMEGA_PATTERN)
+  const pathname = Rails.path({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -66,7 +66,7 @@ function REDIRECT_TO_EMBARK ({ history, embark }) { // console.log('REDIRECT_TO_
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Boiler.EMBARK]: embark }, Boiler.EMBARK_PATTERN)
+  const pathname = Rails.path({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -76,12 +76,12 @@ function REDIRECT_TO_DEBARK ({ history, debark }) { // console.log('REDIRECT_TO_
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Boiler.DEBARK]: debark }, Boiler.DEBARK_PATTERN)
+  const pathname = Rails.path({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
 
-function REDIRECT ({ [Boiler.ALPHA]: alpha, [Boiler.OMEGA]: omega, [Boiler.EMBARK]: embark, [Boiler.DEBARK]: debark, history }) { // console.log('REDIRECT()', alpha, omega, debark, embark) // eslint-disable-line
+function REDIRECT ({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, history }) { // console.log('REDIRECT()', alpha, omega, debark, embark) // eslint-disable-line
   if (alpha && omega) {
     REDIRECT_TO_OMEGA({ alpha, omega, history })
   } else if (embark) {
@@ -95,19 +95,19 @@ function REDIRECT ({ [Boiler.ALPHA]: alpha, [Boiler.OMEGA]: omega, [Boiler.EMBAR
   }
 }
 
-function redirectFromAlpha ({ [Boiler.ALPHA]: { redirect }, history }) { // console.log('redirectFromAlpha()', redirect) // eslint-disable-line
+function redirectFromAlpha ({ [Signals.ALPHA]: { redirect }, history }) { // console.log('redirectFromAlpha()', redirect) // eslint-disable-line
   if (redirect) REDIRECT({ ...redirect, history })
 }
 
-function redirectFromOmega ({ [Boiler.OMEGA]: { redirect }, history }) { // console.log('redirectFromOmega()', redirect) // eslint-disable-line
+function redirectFromOmega ({ [Signals.OMEGA]: { redirect }, history }) { // console.log('redirectFromOmega()', redirect) // eslint-disable-line
   if (redirect) REDIRECT({ ...redirect, history })
 }
 
-function redirectFromEmbark ({ [Boiler.EMBARK]: { redirect }, history }) { // console.log('redirectFromEmbark()', redirect) // eslint-disable-line
+function redirectFromEmbark ({ [Signals.EMBARK]: { redirect }, history }) { // console.log('redirectFromEmbark()', redirect) // eslint-disable-line
   if (redirect) REDIRECT({ ...redirect, history })
 }
 
-function redirectFromDebark ({ [Boiler.DEBARK]: { redirect }, history }) { // console.log('redirectFromDebark()', redirect) // eslint-disable-line
+function redirectFromDebark ({ [Signals.DEBARK]: { redirect }, history }) { // console.log('redirectFromDebark()', redirect) // eslint-disable-line
   if (redirect) REDIRECT({ ...redirect, history })
 }
 
