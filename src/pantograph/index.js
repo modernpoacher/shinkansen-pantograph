@@ -81,16 +81,28 @@ function REDIRECT_TO_DEBARK ({ history, debark }) { // console.log('REDIRECT_TO_
   if (PATHNAME !== pathname) history.push(pathname)
 }
 
-function REDIRECT ({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, history }) { // console.log('REDIRECT()', alpha, omega, debark, embark) // eslint-disable-line
+function REDIRECT_TO_EXCEPTION ({ history, exception }) { // console.log('REDIRECT_TO_DEBARK', debark) // eslint-disable-line
+  const {
+    pathname: PATHNAME
+  } = history.getCurrentLocation()
+
+  const pathname = Rails.path({ [Signals.EXCEPTION]: exception }, Signals.EXCEPTION_PATTERN)
+
+  if (PATHNAME !== pathname) history.push(pathname)
+}
+
+function REDIRECT ({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, exception, history }) { // console.log('REDIRECT()', alpha, omega, debark, embark) // eslint-disable-line
   if (alpha && omega) {
     REDIRECT_TO_OMEGA({ alpha, omega, history })
   } else if (embark) {
     REDIRECT_TO_EMBARK({ embark, history })
   } else if (debark) {
     REDIRECT_TO_DEBARK({ debark, history })
-  } else if (alpha) {
+  } else if (exception) {
+    REDIRECT_TO_EXCEPTION({ exception, history })
+  } else if (alpha) { // can appear on its own
     REDIRECT_TO_ALPHA({ alpha, history })
-  } else if (omega) {
+  } else if (omega) { // should never appear on its own
     throw Error('Pantograph encountered a route error in REDIRECT()')
   }
 }
