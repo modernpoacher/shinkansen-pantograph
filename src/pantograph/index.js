@@ -1,10 +1,10 @@
 import {
-  Signals
-} from 'shinkansen-signals'
-
-import {
   Rails
 } from 'shinkansen-rails'
+
+import {
+  Signals
+} from 'shinkansen-signals'
 
 const ALPHA = {
   CHANGE: 'ALPHA_CHANGE',

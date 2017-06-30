@@ -1,6 +1,6 @@
 {
   "name": "shinkansen-pantograph",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Shinkansen Pantograph",
   "main": "./index.js",
   "keywords": [
@@ -32,8 +32,8 @@
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-preset-babili": "^0.1.4",
-    "shinkansen-rails": "^0.0.1",
-    "shinkansen-signals": "^0.0.1",
+    "shinkansen-rails": "0.0.4",
+    "shinkansen-signals": "0.0.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
