@@ -32,6 +32,11 @@ const DEBARK = {
   STORE: 'DEBARK_STORE'
 }
 
+const OMEGA_QUERY = `${OMEGA.QUERY}_FULFILLED`
+const EMBARK_ROUTE = `${EMBARK.ROUTE}_FULFILLED`
+const DEBARK_ROUTE = `${DEBARK.ROUTE}_FULFILLED`
+const ALPHA_QUERY = `${ALPHA.QUERY}_FULFILLED`
+
 const ACTION = {}
 const STORE = {
   getState: () => ({})
@@ -41,7 +46,7 @@ const HISTORY = {
   getCurrentLocation: () => {}
 }
 
-function REDIRECT_TO_ALPHA ({ history, alpha }) { // console.log('REDIRECT_TO_ALPHA', route) // eslint-disable-line
+function REDIRECT_TO_ALPHA ({ history, alpha }) { // console.log('REDIRECT_TO_ALPHA', alpha) // eslint-disable-line
   const {
     pathname: PATHNAME
   } = history.getCurrentLocation()
@@ -51,7 +56,7 @@ function REDIRECT_TO_ALPHA ({ history, alpha }) { // console.log('REDIRECT_TO_AL
   if (PATHNAME !== pathname) history.push(pathname)
 }
 
-function REDIRECT_TO_OMEGA ({ history, alpha, omega }) { // console.log('REDIRECT_TO_OMEGA', route) // eslint-disable-line
+function REDIRECT_TO_OMEGA ({ history, alpha, omega }) { // console.log('REDIRECT_TO_OMEGA', alpha, omega) // eslint-disable-line
   const {
     pathname: PATHNAME
   } = history.getCurrentLocation()
@@ -111,30 +116,30 @@ function redirectFromDebark ({ [Signals.DEBARK]: { redirect } = {}, history }) {
   if (redirect) REDIRECT({ ...redirect, history })
 }
 
-function graphite ({ action: { type, ...action } = ACTION, store = STORE, history = HISTORY }) {
+function graphite ({ action: { type, payload: { data, ...payload } = {}, ...action } = ACTION, store = STORE, history = HISTORY }) {
   switch (type) {
-    case 'OMEGA_QUERY': // console.log('Pantograph.graphite():OMEGA_QUERY', { ...action, type }) // eslint-disable-line
+    case OMEGA_QUERY: // console.log(`Pantograph.graphite():${OMEGA_QUERY}`, { ...data, type }) // eslint-disable-line
       {
         const state = store.getState()
 
         redirectFromOmega({ ...state, history })
       }
       break
-    case 'EMBARK_ROUTE': // console.log('Pantograph.graphite():EMBARK_ROUTE', { ...action, type }) // eslint-disable-line
+    case EMBARK_ROUTE: // console.log(`Pantograph.graphite():${EMBARK_ROUTE}`, { ...data, type }) // eslint-disable-line
       {
         const state = store.getState()
 
         redirectFromEmbark({ ...state, history })
       }
       break
-    case 'DEBARK_ROUTE': // console.log('Pantograph.graphite():DEBARK_ROUTE', { ...action, type }) // eslint-disable-line
+    case DEBARK_ROUTE: // console.log(`Pantograph.graphite():${DEBARK_ROUTE}`, { ...data, type }) // eslint-disable-line
       {
         const state = store.getState()
 
         redirectFromDebark({ ...state, history })
       }
       break
-    case 'ALPHA_QUERY': // console.log('Pantograph.graphite():ALPHA_QUERY', { ...action, type }) // eslint-disable-line
+    case ALPHA_QUERY: // console.log(`Pantograph.graphite():${ALPHA_QUERY}`, { ...data, type }) // eslint-disable-line
       {
         const state = store.getState()
 
@@ -143,7 +148,7 @@ function graphite ({ action: { type, ...action } = ACTION, store = STORE, histor
       break
   }
 
-  return { ...action, type }
+  return { ...action, payload: { ...payload, data }, type }
 }
 
 export class Pantograph {
