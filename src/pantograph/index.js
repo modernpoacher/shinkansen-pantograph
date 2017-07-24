@@ -32,11 +32,6 @@ const DEBARK = {
   STORE: 'DEBARK_STORE'
 }
 
-const OMEGA_QUERY = `${OMEGA.QUERY}_FULFILLED`
-const EMBARK_ROUTE = `${EMBARK.ROUTE}_FULFILLED`
-const DEBARK_ROUTE = `${DEBARK.ROUTE}_FULFILLED`
-const ALPHA_QUERY = `${ALPHA.QUERY}_FULFILLED`
-
 const ACTION = {}
 const STORE = {
   getState: () => ({})
@@ -116,39 +111,21 @@ function redirectFromDebark ({ [Signals.DEBARK]: { redirect } = {}, history }) {
   if (redirect) REDIRECT({ ...redirect, history })
 }
 
-function graphite ({ action: { type, payload: { data, ...payload } = {}, ...action } = ACTION, store = STORE, history = HISTORY }) {
+function graphite ({ action: { type } = ACTION, store = STORE, history = HISTORY }) {
   switch (type) {
-    case OMEGA_QUERY: // console.log(`Pantograph.graphite():${OMEGA_QUERY}`, { ...data, type }) // eslint-disable-line
-      {
-        const state = store.getState()
-
-        redirectFromOmega({ ...state, history })
-      }
+    case OMEGA.QUERY: // console.log(`Pantograph.graphite():${OMEGA.QUERY}`, { type }) // eslint-disable-line
+      redirectFromOmega({ ...store.getState(), history })
       break
-    case EMBARK_ROUTE: // console.log(`Pantograph.graphite():${EMBARK_ROUTE}`, { ...data, type }) // eslint-disable-line
-      {
-        const state = store.getState()
-
-        redirectFromEmbark({ ...state, history })
-      }
+    case EMBARK.ROUTE: // console.log(`Pantograph.graphite():${EMBARK.ROUTE}`, { type }) // eslint-disable-line
+      redirectFromEmbark({ ...store.getState(), history })
       break
-    case DEBARK_ROUTE: // console.log(`Pantograph.graphite():${DEBARK_ROUTE}`, { ...data, type }) // eslint-disable-line
-      {
-        const state = store.getState()
-
-        redirectFromDebark({ ...state, history })
-      }
+    case DEBARK.ROUTE: // console.log(`Pantograph.graphite():${DEBARK.ROUTE}`, { type }) // eslint-disable-line
+      redirectFromDebark({ ...store.getState(), history })
       break
-    case ALPHA_QUERY: // console.log(`Pantograph.graphite():${ALPHA_QUERY}`, { ...data, type }) // eslint-disable-line
-      {
-        const state = store.getState()
-
-        redirectFromAlpha({ ...state, history })
-      }
+    case ALPHA.QUERY: // console.log(`Pantograph.graphite():${ALPHA.QUERY}`, { type }) // eslint-disable-line
+      redirectFromAlpha({ ...store.getState(), history })
       break
   }
-
-  return { ...action, payload: { ...payload, data }, type }
 }
 
 export class Pantograph {
