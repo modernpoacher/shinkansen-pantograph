@@ -1,3 +1,1 @@
-export {
-  Pantograph
-} from './pantograph'
+export Pantograph from './pantograph'

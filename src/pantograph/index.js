@@ -128,7 +128,7 @@ function graphite ({ action: { type } = ACTION, store = STORE, history = HISTORY
   }
 }
 
-export class Pantograph {
+export default class Pantograph {
   static get ALPHA () {
     return ALPHA
   }
