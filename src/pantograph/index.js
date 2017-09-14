@@ -46,7 +46,7 @@ function REDIRECT_TO_ALPHA ({ history, alpha }) { // console.log('REDIRECT_TO_AL
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
+  const pathname = Rails.to({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -56,7 +56,7 @@ function REDIRECT_TO_OMEGA ({ history, alpha, omega }) { // console.log('REDIREC
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
+  const pathname = Rails.to({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -66,7 +66,7 @@ function REDIRECT_TO_EMBARK ({ history, embark }) { // console.log('REDIRECT_TO_
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
+  const pathname = Rails.to({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
@@ -76,7 +76,7 @@ function REDIRECT_TO_DEBARK ({ history, debark }) { // console.log('REDIRECT_TO_
     pathname: PATHNAME
   } = history.getCurrentLocation()
 
-  const pathname = Rails.path({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
+  const pathname = Rails.to({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
 
   if (PATHNAME !== pathname) history.push(pathname)
 }
