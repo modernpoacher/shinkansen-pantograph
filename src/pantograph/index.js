@@ -41,47 +41,43 @@ const HISTORY = {
   getCurrentLocation: () => {}
 }
 
-function REDIRECT_TO_ALPHA ({ history, alpha }) { // console.log('REDIRECT_TO_ALPHA', alpha) // eslint-disable-line
+function REDIRECT_TO_ALPHA ({ alpha, history }) { // console.log('REDIRECT_TO_ALPHA', alpha) // eslint-disable-line
+  const PATHNAME = Rails.to({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
   const {
-    pathname: PATHNAME
+    pathname
   } = history.getCurrentLocation()
 
-  const pathname = Rails.to({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
-
-  if (PATHNAME !== pathname) history.push(pathname)
+  if (PATHNAME !== pathname) history.push(PATHNAME)
 }
 
-function REDIRECT_TO_OMEGA ({ history, alpha, omega }) { // console.log('REDIRECT_TO_OMEGA', alpha, omega) // eslint-disable-line
+function REDIRECT_TO_OMEGA ({ alpha, omega, history }) { // console.log('REDIRECT_TO_OMEGA', alpha, omega) // eslint-disable-line
+  const PATHNAME = Rails.to({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
   const {
-    pathname: PATHNAME
+    pathname
   } = history.getCurrentLocation()
 
-  const pathname = Rails.to({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
-
-  if (PATHNAME !== pathname) history.push(pathname)
+  if (PATHNAME !== pathname) history.push(PATHNAME)
 }
 
-function REDIRECT_TO_EMBARK ({ history, embark }) { // console.log('REDIRECT_TO_EMBARK', embark) // eslint-disable-line
+function REDIRECT_TO_EMBARK ({ embark, history }) { // console.log('REDIRECT_TO_EMBARK', embark) // eslint-disable-line
+  const PATHNAME = Rails.to({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
   const {
-    pathname: PATHNAME
+    pathname
   } = history.getCurrentLocation()
 
-  const pathname = Rails.to({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
-
-  if (PATHNAME !== pathname) history.push(pathname)
+  if (PATHNAME !== pathname) history.push(PATHNAME)
 }
 
-function REDIRECT_TO_DEBARK ({ history, debark }) { // console.log('REDIRECT_TO_DEBARK', debark) // eslint-disable-line
+function REDIRECT_TO_DEBARK ({ debark, history }) { // console.log('REDIRECT_TO_DEBARK', debark) // eslint-disable-line
+  const PATHNAME = Rails.to({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
   const {
-    pathname: PATHNAME
+    pathname
   } = history.getCurrentLocation()
 
-  const pathname = Rails.to({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
-
-  if (PATHNAME !== pathname) history.push(pathname)
+  if (PATHNAME !== pathname) history.push(PATHNAME)
 }
 
-function REDIRECT ({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, exception, history }) { // console.log('REDIRECT()', alpha, omega, embark, debark, exception) // eslint-disable-line
+function REDIRECT ({ redirect: { [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, exception }, history }) { // console.log('REDIRECT()', alpha, omega, embark, debark, exception) // eslint-disable-line
   if (alpha && omega) {
     REDIRECT_TO_OMEGA({ alpha, omega, history })
   } else if (embark) {
@@ -95,35 +91,35 @@ function REDIRECT ({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EM
   }
 }
 
-function redirectFromAlpha ({ [Signals.ALPHA]: { redirect } = {}, history }) { // console.log('redirectFromAlpha()', redirect) // eslint-disable-line
-  if (redirect) REDIRECT({ ...redirect, history })
+function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } = {} }, history }) { // console.log('redirectFromAlpha()', redirect) // eslint-disable-line
+  if (redirect) REDIRECT({ redirect, history })
 }
 
-function redirectFromOmega ({ [Signals.OMEGA]: { redirect } = {}, history }) { // console.log('redirectFromOmega()', redirect) // eslint-disable-line
-  if (redirect) REDIRECT({ ...redirect, history })
+function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } = {} }, history }) { // console.log('redirectFromOmega()', redirect) // eslint-disable-line
+  if (redirect) REDIRECT({ redirect, history })
 }
 
-function redirectFromEmbark ({ [Signals.EMBARK]: { redirect } = {}, history }) { // console.log('redirectFromEmbark()', redirect) // eslint-disable-line
-  if (redirect) REDIRECT({ ...redirect, history })
+function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect } = {} }, history }) { // console.log('redirectFromEmbark()', redirect) // eslint-disable-line
+  if (redirect) REDIRECT({ redirect, history })
 }
 
-function redirectFromDebark ({ [Signals.DEBARK]: { redirect } = {}, history }) { // console.log('redirectFromDebark()', redirect) // eslint-disable-line
-  if (redirect) REDIRECT({ ...redirect, history })
+function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect } = {} }, history }) { // console.log('redirectFromDebark()', redirect) // eslint-disable-line
+  if (redirect) REDIRECT({ redirect, history })
 }
 
 function graphite ({ action: { type } = ACTION, store = STORE, history = HISTORY }) {
   switch (type) {
     case OMEGA.QUERY: // console.log(`Pantograph.graphite():${OMEGA.QUERY}`, { type }) // eslint-disable-line
-      redirectFromOmega({ ...store.getState(), history })
+      redirectFromOmega({ state: store.getState(), history })
       break
     case EMBARK.ROUTE: // console.log(`Pantograph.graphite():${EMBARK.ROUTE}`, { type }) // eslint-disable-line
-      redirectFromEmbark({ ...store.getState(), history })
+      redirectFromEmbark({ state: store.getState(), history })
       break
     case DEBARK.ROUTE: // console.log(`Pantograph.graphite():${DEBARK.ROUTE}`, { type }) // eslint-disable-line
-      redirectFromDebark({ ...store.getState(), history })
+      redirectFromDebark({ state: store.getState(), history })
       break
     case ALPHA.QUERY: // console.log(`Pantograph.graphite():${ALPHA.QUERY}`, { type }) // eslint-disable-line
-      redirectFromAlpha({ ...store.getState(), history })
+      redirectFromAlpha({ state: store.getState(), history })
       break
   }
 }
