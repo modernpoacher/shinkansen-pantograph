@@ -77,7 +77,7 @@ function REDIRECT_TO_DEBARK ({ debark, history }) { // console.log('REDIRECT_TO_
   if (PATHNAME !== pathname) history.push(PATHNAME)
 }
 
-function REDIRECT ({ redirect: { [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, exception }, history }) { // console.log('REDIRECT()', alpha, omega, embark, debark, exception) // eslint-disable-line
+function REDIRECT ({ redirect: { [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, exception } = {}, history }) { // console.log('REDIRECT()', alpha, omega, embark, debark, exception) // eslint-disable-line
   if (alpha && omega) {
     REDIRECT_TO_OMEGA({ alpha, omega, history })
   } else if (embark) {
