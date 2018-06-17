@@ -1,6 +1,6 @@
 {
   "name": "shinkansen-pantograph",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Shinkansen Pantograph",
   "main": "./index.js",
   "keywords": [
@@ -21,7 +21,8 @@
   },
   "scripts": {
     "prepublishOnly": "npm run babel",
-    "build": "bash index.sh; npm run babel",
+    "prebuild": "bash index.sh",
+    "build": "npm run babel",
     "babel": "babel src -d lib",
     "babel:watch": "npm run babel -- -w",
     "lint": "eslint src",
@@ -31,22 +32,21 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "shinkansen-rails": "0.0.7",
-    "shinkansen-signals": "0.0.7"
+    "shinkansen-rails": "0.0.8",
+    "shinkansen-signals": "0.0.8"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
-    "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
-    "eslint": "^4.9.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0"
   }
 }
