@@ -1,6 +1,6 @@
 {
   "name": "shinkansen-pantograph",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Shinkansen Pantograph",
   "main": "./index.js",
   "keywords": [
@@ -32,8 +32,8 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "shinkansen-rails": "0.0.8",
-    "shinkansen-signals": "0.0.8"
+    "shinkansen-rails": "0.0.9",
+    "shinkansen-signals": "0.0.9"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
