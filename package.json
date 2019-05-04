@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com/modernpoacher/Shinkansen.Pantograph.git"
+    "url": "git@github.com/modernpoacher/shinkansen-pantograph.git"
   },
   "author": "Jonathan Perry for Modern Poacher Limited",
   "license": "MIT",
