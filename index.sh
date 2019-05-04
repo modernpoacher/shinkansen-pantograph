@@ -9,7 +9,7 @@ if [[ $? -eq 0 ]]; then
   # cd ../shinkansen-pantograph
   npm run clean &> /dev/null
   npm link shinkansen-rails shinkansen-signals &> /dev/null
-  npm install &> /dev/null
+  npm ci &> /dev/null
 
   # echo -e "\x15" # CR
   echo -e $PASS $MODULE
