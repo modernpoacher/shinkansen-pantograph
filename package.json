@@ -7,6 +7,8 @@
     "Shinkansen",
     "Pantograph",
     "Zashiki Karakuri",
+    "Zashiki",
+    "Karakuri",
     "React",
     "Router"
   ],
@@ -16,11 +18,8 @@
   },
   "author": "Jonathan Perry for Modern Poacher Limited",
   "license": "MIT",
-  "engines": {
-    "node": ">=7.0.0"
-  },
   "scripts": {
-    "prepublishOnly": "npm run lint:fix; npm run babel",
+    "prepublishOnly": "npm run lint:fix && npm run babel",
     "prebuild": "bash index.sh",
     "build": "npm run babel",
     "clean": "bash clean.sh",
@@ -37,17 +36,20 @@
     "shinkansen-signals": "0.0.11"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
     "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "eslint": "^5.6.1",
+    "babel-loader": "^8.0.5",
+    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^2.2.0"
   }
 }
