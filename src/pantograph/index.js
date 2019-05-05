@@ -77,7 +77,16 @@ function redirectToDebark ({ debark, history }) { // console.log('redirectToDeba
   if (pathname !== currentPathname) history.push(pathname)
 }
 
-function redirect ({ redirect: { [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega, [Signals.EMBARK]: embark, [Signals.DEBARK]: debark, exception } = {}, history }) { // console.log('redirect()', alpha, omega, embark, debark, exception) // eslint-disable-line
+function redirect ({
+  redirect: {
+    [Signals.ALPHA]: alpha,
+    [Signals.OMEGA]: omega,
+    [Signals.EMBARK]: embark,
+    [Signals.DEBARK]: debark,
+    exception
+  } = {},
+  history
+}) { // console.log('redirect()', alpha, omega, embark, debark, exception) // eslint-disable-line
   if (alpha && omega) {
     redirectToOmega({ alpha, omega, history })
   } else if (embark) {
@@ -125,6 +134,9 @@ function graphite ({ action: { type } = ACTION, store = STORE, history = HISTORY
 }
 
 export default class Pantograph {
+  /**
+   *  Getters ensure that these fields are read-only
+   */
   static get ALPHA () {
     return ALPHA
   }
