@@ -7,6 +7,7 @@ import {
 } from 'shinkansen-signals'
 
 const ALPHA = {
+  ERROR: 'ALPHA_ERROR',
   CHANGE: 'ALPHA_CHANGE',
   FETCH: 'ALPHA_FETCH',
   STORE: 'ALPHA_STORE',
@@ -14,6 +15,7 @@ const ALPHA = {
 }
 
 const OMEGA = {
+  ERROR: 'OMEGA_ERROR',
   CHANGE: 'OMEGA_CHANGE',
   FETCH: 'OMEGA_FETCH',
   STORE: 'OMEGA_STORE',
@@ -21,12 +23,14 @@ const OMEGA = {
 }
 
 const EMBARK = {
+  ERROR: 'EMBARK_ERROR',
   ROUTE: 'EMBARK_ROUTE',
   FETCH: 'EMBARK_FETCH',
   STORE: 'EMBARK_STORE'
 }
 
 const DEBARK = {
+  ERROR: 'DEBARK_ERROR',
   ROUTE: 'DEBARK_ROUTE',
   FETCH: 'DEBARK_FETCH',
   STORE: 'DEBARK_STORE'
@@ -82,11 +86,10 @@ function redirect ({
     [Signals.ALPHA]: alpha,
     [Signals.OMEGA]: omega,
     [Signals.EMBARK]: embark,
-    [Signals.DEBARK]: debark,
-    exception
+    [Signals.DEBARK]: debark
   } = {},
   history
-}) { // console.log('redirect()', alpha, omega, embark, debark, exception) // eslint-disable-line
+}) { // console.log('redirect()', alpha, omega, embark, debark) // eslint-disable-line
   if (alpha && omega) {
     redirectToOmega({ alpha, omega, history })
   } else if (embark) {
@@ -100,19 +103,19 @@ function redirect ({
   }
 }
 
-function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect: route } = {} }, history }) { // console.log('redirectFromAlpha()', route) // eslint-disable-line
+function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromAlpha()', route) // eslint-disable-line
   if (route) redirect({ redirect: route, history })
 }
 
-function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect: route } = {} }, history }) { // console.log('redirectFromOmega()', route) // eslint-disable-line
+function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromOmega()', route) // eslint-disable-line
   if (route) redirect({ redirect: route, history })
 }
 
-function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect: route } = {} }, history }) { // console.log('redirectFromEmbark()', route) // eslint-disable-line
+function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromEmbark()', route) // eslint-disable-line
   if (route) redirect({ redirect: route, history })
 }
 
-function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect: route } = {} }, history }) { // console.log('redirectFromDebark()', route) // eslint-disable-line
+function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromDebark()', route) // eslint-disable-line
   if (route) redirect({ redirect: route, history })
 }
 
