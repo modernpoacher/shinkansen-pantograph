@@ -8,7 +8,9 @@ import {
 
 const ALPHA = {
   ERROR: 'ALPHA_ERROR',
+  ROUTE: 'ALPHA_ROUTE',
   CHANGE: 'ALPHA_CHANGE',
+  SUBMIT: 'ALPHA_SUBMIT',
   FETCH: 'ALPHA_FETCH',
   STORE: 'ALPHA_STORE',
   QUERY: 'ALPHA_QUERY'
@@ -16,7 +18,9 @@ const ALPHA = {
 
 const OMEGA = {
   ERROR: 'OMEGA_ERROR',
+  ROUTE: 'OMEGA_ROUTE',
   CHANGE: 'OMEGA_CHANGE',
+  SUBMIT: 'OMEGA_SUBMIT',
   FETCH: 'OMEGA_FETCH',
   STORE: 'OMEGA_STORE',
   QUERY: 'OMEGA_QUERY'
@@ -25,6 +29,7 @@ const OMEGA = {
 const EMBARK = {
   ERROR: 'EMBARK_ERROR',
   ROUTE: 'EMBARK_ROUTE',
+  SUBMIT: 'EMBARK_SUBMIT',
   FETCH: 'EMBARK_FETCH',
   STORE: 'EMBARK_STORE'
 }
@@ -32,6 +37,7 @@ const EMBARK = {
 const DEBARK = {
   ERROR: 'DEBARK_ERROR',
   ROUTE: 'DEBARK_ROUTE',
+  SUBMIT: 'DEBARK_SUBMIT',
   FETCH: 'DEBARK_FETCH',
   STORE: 'DEBARK_STORE'
 }
@@ -121,7 +127,7 @@ function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect: route } = 
 
 function graphite ({ action: { type } = ACTION, store = STORE, history = HISTORY }) {
   switch (type) {
-    case OMEGA.QUERY: // console.log(`Pantograph.graphite():${OMEGA.QUERY}`, { type }) // eslint-disable-line
+    case OMEGA.ROUTE: // console.log(`Pantograph.graphite():${OMEGA.ROUTE}`, { type }) // eslint-disable-line
       redirectFromOmega({ state: store.getState(), history })
       break
     case EMBARK.ROUTE: // console.log(`Pantograph.graphite():${EMBARK.ROUTE}`, { type }) // eslint-disable-line
@@ -130,7 +136,7 @@ function graphite ({ action: { type } = ACTION, store = STORE, history = HISTORY
     case DEBARK.ROUTE: // console.log(`Pantograph.graphite():${DEBARK.ROUTE}`, { type }) // eslint-disable-line
       redirectFromDebark({ state: store.getState(), history })
       break
-    case ALPHA.QUERY: // console.log(`Pantograph.graphite():${ALPHA.QUERY}`, { type }) // eslint-disable-line
+    case ALPHA.ROUTE: // console.log(`Pantograph.graphite():${ALPHA.ROUTE}`, { type }) // eslint-disable-line
       redirectFromAlpha({ state: store.getState(), history })
       break
   }
