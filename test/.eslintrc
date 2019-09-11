@@ -1,0 +1,13 @@
+{
+  "env": {
+    "mocha": true
+  },
+  "overrides": [
+    {
+      "files": ["pantograph/index.spec.js"],
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    }
+  ]
+}
