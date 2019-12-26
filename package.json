@@ -27,7 +27,7 @@
     "babel:watch": "npm run babel -- -w",
     "lint": "eslint src test *.js",
     "lint:fix": "npm run lint -- --fix",
-    "test": "mocha -r @babel/register test/**/*.spec.js",
+    "test": "mocha -r @babel/register test --recursive",
     "pre-commit": "npm run lint && npm test && npm run babel && git add lib"
   },
   "dependencies": {
