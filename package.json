@@ -31,7 +31,7 @@
     "pre-commit": "npm run lint && npm test && npm run babel && git add lib"
   },
   "dependencies": {
-    "shinkansen-rails": "1.0.5",
+    "shinkansen-rails": "1.0.6",
     "shinkansen-signals": "1.0.6"
   },
   "devDependencies": {
