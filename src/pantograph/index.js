@@ -1,3 +1,5 @@
+import debug from 'debug'
+
 import {
   Rails
 } from 'shinkansen-rails'
@@ -5,6 +7,8 @@ import {
 import {
   Signals
 } from 'shinkansen-signals'
+
+const log = debug('shinkansen:pantograph')
 
 const ALPHA = {
   ERROR: 'ALPHA_ERROR',
@@ -29,6 +33,7 @@ const OMEGA = {
 const EMBARK = {
   ERROR: 'EMBARK_ERROR',
   ROUTE: 'EMBARK_ROUTE',
+  CHANGE: 'EMBARK_CHANGE',
   SUBMIT: 'EMBARK_SUBMIT',
   FETCH: 'EMBARK_FETCH',
   STORE: 'EMBARK_STORE'
@@ -37,6 +42,7 @@ const EMBARK = {
 const DEBARK = {
   ERROR: 'DEBARK_ERROR',
   ROUTE: 'DEBARK_ROUTE',
+  CHANGE: 'DEBARK_CHANGE',
   SUBMIT: 'DEBARK_SUBMIT',
   FETCH: 'DEBARK_FETCH',
   STORE: 'DEBARK_STORE'
@@ -51,7 +57,9 @@ const HISTORY = {
   getCurrentLocation: () => ({})
 }
 
-export function redirectToAlpha ({ alpha, history }) { // console.log('redirectToAlpha', alpha)
+export function redirectToAlpha ({ alpha, history }) {
+  log('redirectToAlpha')
+
   const pathname = Rails.to({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
   const {
     pathname: currentPathname
@@ -60,7 +68,9 @@ export function redirectToAlpha ({ alpha, history }) { // console.log('redirectT
   if (pathname !== currentPathname) history.push(pathname)
 }
 
-export function redirectToOmega ({ alpha, omega, history }) { // console.log('redirectToOmega', alpha, omega)
+export function redirectToOmega ({ alpha, omega, history }) {
+  log('redirectToOmega')
+
   const pathname = Rails.to({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
   const {
     pathname: currentPathname
@@ -69,7 +79,9 @@ export function redirectToOmega ({ alpha, omega, history }) { // console.log('re
   if (pathname !== currentPathname) history.push(pathname)
 }
 
-export function redirectToEmbark ({ embark, history }) { // console.log('redirectToEmbark', embark)
+export function redirectToEmbark ({ embark, history }) {
+  log('redirectToEmbark')
+
   const pathname = Rails.to({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
   const {
     pathname: currentPathname
@@ -78,7 +90,9 @@ export function redirectToEmbark ({ embark, history }) { // console.log('redirec
   if (pathname !== currentPathname) history.push(pathname)
 }
 
-export function redirectToDebark ({ debark, history }) { // console.log('redirectToDebark', debark)
+export function redirectToDebark ({ debark, history }) {
+  log('redirectToDebark')
+
   const pathname = Rails.to({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
   const {
     pathname: currentPathname
@@ -95,7 +109,9 @@ export function redirect ({
     [Signals.DEBARK]: debark
   } = {},
   history
-}) { // console.log('redirect()', alpha, omega, embark, debark)
+}) {
+  log('redirect()')
+
   if (alpha && omega) {
     redirectToOmega({ alpha, omega, history })
   } else if (embark) {
@@ -109,34 +125,42 @@ export function redirect ({
   }
 }
 
-export function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromAlpha()', route, history)
+export function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect: route } = {} } = {}, history }) {
+  log('redirectFromAlpha()')
+
   if (route) redirect({ redirect: route, history })
 }
 
-export function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromOmega()', route, history)
+export function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect: route } = {} } = {}, history }) {
+  log('redirectFromOmega()')
+
   if (route) redirect({ redirect: route, history })
 }
 
-export function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromEmbark()', route, history)
+export function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect: route } = {} } = {}, history }) {
+  log('redirectFromEmbark()')
+
   if (route) redirect({ redirect: route, history })
 }
 
-export function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect: route } = {} } = {}, history }) { // console.log('redirectFromDebark()', route, history)
+export function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect: route } = {} } = {}, history }) {
+  log('redirectFromDebark()')
+
   if (route) redirect({ redirect: route, history })
 }
 
 export function graphite ({ action: { type } = ACTION, state = STATE, history = HISTORY }) {
   switch (type) {
-    case OMEGA.ROUTE: // console.log(`Pantograph.graphite():${OMEGA.ROUTE}`, { type }, state, history)
+    case OMEGA.ROUTE:
       redirectFromOmega({ state, history })
       break
-    case EMBARK.ROUTE: // console.log(`Pantograph.graphite():${EMBARK.ROUTE}`, { type }, state, history)
+    case EMBARK.ROUTE:
       redirectFromEmbark({ state, history })
       break
-    case DEBARK.ROUTE: // console.log(`Pantograph.graphite():${DEBARK.ROUTE}`, { type }, state, history)
+    case DEBARK.ROUTE:
       redirectFromDebark({ state, history })
       break
-    case ALPHA.ROUTE: // console.log(`Pantograph.graphite():${ALPHA.ROUTE}`, { type }, state, history)
+    case ALPHA.ROUTE:
       redirectFromAlpha({ state, history })
       break
   }
