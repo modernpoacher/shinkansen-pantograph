@@ -118,27 +118,15 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`Pantograph.ALPHA.CHANGE`', () => {
+    describe('`Pantograph.ALPHA.MOUNT`', () => {
       it('is a string', () => {
-        expect(Pantograph.ALPHA.CHANGE)
+        expect(Pantograph.ALPHA.MOUNT)
           .to.be.a('string')
       })
 
-      it('is `ALPHA_CHANGE`', () => {
-        expect(Pantograph.ALPHA.CHANGE)
-          .to.equal('ALPHA_CHANGE')
-      })
-    })
-
-    describe('`Pantograph.ALPHA.SUBMIT`', () => {
-      it('is a string', () => {
-        expect(Pantograph.ALPHA.SUBMIT)
-          .to.be.a('string')
-      })
-
-      it('is `ALPHA_SUBMIT`', () => {
-        expect(Pantograph.ALPHA.SUBMIT)
-          .to.equal('ALPHA_SUBMIT')
+      it('is `ALPHA_MOUNT`', () => {
+        expect(Pantograph.ALPHA.MOUNT)
+          .to.equal('ALPHA_MOUNT')
       })
     })
 
@@ -177,6 +165,30 @@ describe('shinkansen-pantograph/pantograph', () => {
           .to.equal('ALPHA_QUERY')
       })
     })
+
+    describe('`Pantograph.ALPHA.CHANGE`', () => {
+      it('is a string', () => {
+        expect(Pantograph.ALPHA.CHANGE)
+          .to.be.a('string')
+      })
+
+      it('is `ALPHA_CHANGE`', () => {
+        expect(Pantograph.ALPHA.CHANGE)
+          .to.equal('ALPHA_CHANGE')
+      })
+    })
+
+    describe('`Pantograph.ALPHA.SUBMIT`', () => {
+      it('is a string', () => {
+        expect(Pantograph.ALPHA.SUBMIT)
+          .to.be.a('string')
+      })
+
+      it('is `ALPHA_SUBMIT`', () => {
+        expect(Pantograph.ALPHA.SUBMIT)
+          .to.equal('ALPHA_SUBMIT')
+      })
+    })
   })
 
   describe('`Pantograph.OMEGA`', () => {
@@ -209,27 +221,15 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`Pantograph.OMEGA.CHANGE`', () => {
+    describe('`Pantograph.OMEGA.MOUNT`', () => {
       it('is a string', () => {
-        expect(Pantograph.OMEGA.CHANGE)
+        expect(Pantograph.OMEGA.MOUNT)
           .to.be.a('string')
       })
 
-      it('is `OMEGA_SUBMIT`', () => {
-        expect(Pantograph.OMEGA.CHANGE)
-          .to.equal('OMEGA_CHANGE')
-      })
-    })
-
-    describe('`Pantograph.OMEGA.SUBMIT`', () => {
-      it('is a string', () => {
-        expect(Pantograph.OMEGA.SUBMIT)
-          .to.be.a('string')
-      })
-
-      it('is `OMEGA_SUBMIT`', () => {
-        expect(Pantograph.OMEGA.SUBMIT)
-          .to.equal('OMEGA_SUBMIT')
+      it('is `OMEGA_MOUNT`', () => {
+        expect(Pantograph.OMEGA.MOUNT)
+          .to.equal('OMEGA_MOUNT')
       })
     })
 
@@ -263,9 +263,33 @@ describe('shinkansen-pantograph/pantograph', () => {
           .to.be.a('string')
       })
 
-      it('is `OMEGA_STORE`', () => {
+      it('is `OMEGA_QUERY`', () => {
         expect(Pantograph.OMEGA.QUERY)
           .to.equal('OMEGA_QUERY')
+      })
+    })
+
+    describe('`Pantograph.OMEGA.CHANGE`', () => {
+      it('is a string', () => {
+        expect(Pantograph.OMEGA.CHANGE)
+          .to.be.a('string')
+      })
+
+      it('is `OMEGA_CHANGE`', () => {
+        expect(Pantograph.OMEGA.CHANGE)
+          .to.equal('OMEGA_CHANGE')
+      })
+    })
+
+    describe('`Pantograph.OMEGA.SUBMIT`', () => {
+      it('is a string', () => {
+        expect(Pantograph.OMEGA.SUBMIT)
+          .to.be.a('string')
+      })
+
+      it('is `OMEGA_SUBMIT`', () => {
+        expect(Pantograph.OMEGA.SUBMIT)
+          .to.equal('OMEGA_SUBMIT')
       })
     })
   })
@@ -300,15 +324,15 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`Pantograph.EMBARK.SUBMIT`', () => {
+    describe('`Pantograph.EMBARK.MOUNT`', () => {
       it('is a string', () => {
-        expect(Pantograph.EMBARK.SUBMIT)
+        expect(Pantograph.EMBARK.MOUNT)
           .to.be.a('string')
       })
 
-      it('is `EMBARK_SUBMIT`', () => {
-        expect(Pantograph.EMBARK.SUBMIT)
-          .to.equal('EMBARK_SUBMIT')
+      it('is `EMBARK_MOUNT`', () => {
+        expect(Pantograph.EMBARK.MOUNT)
+          .to.equal('EMBARK_MOUNT')
       })
     })
 
@@ -333,6 +357,30 @@ describe('shinkansen-pantograph/pantograph', () => {
       it('is `EMBARK_STORE`', () => {
         expect(Pantograph.EMBARK.STORE)
           .to.equal('EMBARK_STORE')
+      })
+    })
+
+    describe('`Pantograph.EMBARK.CHANGE`', () => {
+      it('is a string', () => {
+        expect(Pantograph.EMBARK.CHANGE)
+          .to.be.a('string')
+      })
+
+      it('is `EMBARK_CHANGE`', () => {
+        expect(Pantograph.EMBARK.CHANGE)
+          .to.equal('EMBARK_CHANGE')
+      })
+    })
+
+    describe('`Pantograph.EMBARK.SUBMIT`', () => {
+      it('is a string', () => {
+        expect(Pantograph.EMBARK.SUBMIT)
+          .to.be.a('string')
+      })
+
+      it('is `EMBARK_SUBMIT`', () => {
+        expect(Pantograph.EMBARK.SUBMIT)
+          .to.equal('EMBARK_SUBMIT')
       })
     })
   })
@@ -367,15 +415,15 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`Pantograph.DEBARK.SUBMIT`', () => {
+    describe('`Pantograph.DEBARK.MOUNT`', () => {
       it('is a string', () => {
-        expect(Pantograph.DEBARK.SUBMIT)
+        expect(Pantograph.DEBARK.MOUNT)
           .to.be.a('string')
       })
 
-      it('is `DEBARK_SUBMIT`', () => {
-        expect(Pantograph.DEBARK.SUBMIT)
-          .to.equal('DEBARK_SUBMIT')
+      it('is `DEBARK_MOUNT`', () => {
+        expect(Pantograph.DEBARK.MOUNT)
+          .to.equal('DEBARK_MOUNT')
       })
     })
 
@@ -400,6 +448,30 @@ describe('shinkansen-pantograph/pantograph', () => {
       it('is `DEBARK_STORE`', () => {
         expect(Pantograph.DEBARK.STORE)
           .to.equal('DEBARK_STORE')
+      })
+    })
+
+    describe('`Pantograph.DEBARK.CHANGE`', () => {
+      it('is a string', () => {
+        expect(Pantograph.DEBARK.CHANGE)
+          .to.be.a('string')
+      })
+
+      it('is `DEBARK_CHANGE`', () => {
+        expect(Pantograph.DEBARK.CHANGE)
+          .to.equal('DEBARK_CHANGE')
+      })
+    })
+
+    describe('`Pantograph.DEBARK.SUBMIT`', () => {
+      it('is a string', () => {
+        expect(Pantograph.DEBARK.SUBMIT)
+          .to.be.a('string')
+      })
+
+      it('is `DEBARK_SUBMIT`', () => {
+        expect(Pantograph.DEBARK.SUBMIT)
+          .to.equal('DEBARK_SUBMIT')
       })
     })
   })
