@@ -15,10 +15,12 @@ import Pantograph, {
   redirectToOmega,
   redirectToEmbark,
   redirectToDebark,
+  redirectToConfirm,
   redirectFromAlpha,
   redirectFromOmega,
   redirectFromEmbark,
   redirectFromDebark,
+  redirectFromConfirm,
   redirect,
   graphite
 } from 'shinkansen-pantograph/pantograph'
@@ -476,6 +478,97 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
+  describe('`Pantograph.CONFIRM`', () => {
+    it('is an object', () => {
+      expect(Pantograph.CONFIRM)
+        .to.be.an('object')
+    })
+
+    describe('`Pantograph.CONFIRM.ERROR`', () => {
+      it('is a string', () => {
+        expect(Pantograph.CONFIRM.ERROR)
+          .to.be.a('string')
+      })
+
+      it('is `CONFIRM_ERROR`', () => {
+        expect(Pantograph.CONFIRM.ERROR)
+          .to.equal('CONFIRM_ERROR')
+      })
+    })
+
+    describe('`Pantograph.CONFIRM.ROUTE`', () => {
+      it('is a string', () => {
+        expect(Pantograph.CONFIRM.ROUTE)
+          .to.be.a('string')
+      })
+
+      it('is `CONFIRM_ROUTE`', () => {
+        expect(Pantograph.CONFIRM.ROUTE)
+          .to.equal('CONFIRM_ROUTE')
+      })
+    })
+
+    describe('`Pantograph.CONFIRM.MOUNT`', () => {
+      it('is a string', () => {
+        expect(Pantograph.CONFIRM.MOUNT)
+          .to.be.a('string')
+      })
+
+      it('is `CONFIRM_MOUNT`', () => {
+        expect(Pantograph.CONFIRM.MOUNT)
+          .to.equal('CONFIRM_MOUNT')
+      })
+    })
+
+    describe('`Pantograph.CONFIRM.FETCH`', () => {
+      it('is a string', () => {
+        expect(Pantograph.CONFIRM.FETCH)
+          .to.be.a('string')
+      })
+
+      it('is `CONFIRM_FETCH`', () => {
+        expect(Pantograph.CONFIRM.FETCH)
+          .to.equal('CONFIRM_FETCH')
+      })
+    })
+
+    describe('`Pantograph.CONFIRM.STORE`', () => {
+      it('is a string', () => {
+        expect(Pantograph.CONFIRM.STORE)
+          .to.be.a('string')
+      })
+
+      it('is `CONFIRM_STORE`', () => {
+        expect(Pantograph.CONFIRM.STORE)
+          .to.equal('CONFIRM_STORE')
+      })
+    })
+
+    describe('`Pantograph.CONFIRM.CHANGE`', () => {
+      it('is a string', () => {
+        expect(Pantograph.CONFIRM.CHANGE)
+          .to.be.a('string')
+      })
+
+      it('is `CONFIRM_CHANGE`', () => {
+        expect(Pantograph.CONFIRM.CHANGE)
+          .to.equal('CONFIRM_CHANGE')
+      })
+    })
+
+    describe('`Pantograph.CONFIRM.SUBMIT`', () => {
+      it('is a string', () => {
+        expect(Pantograph.CONFIRM.SUBMIT)
+          .to.be.a('string')
+      })
+
+      it('is `CONFIRM_SUBMIT`', () => {
+        expect(Pantograph.CONFIRM.SUBMIT)
+          .to.equal('CONFIRM_SUBMIT')
+      })
+    })
+  })
+
   describe('`Pantograph.graphite`', () => {
     it('is a function', () => {
       expect(Pantograph.graphite)
@@ -830,6 +923,75 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
+  describe('`redirectToConfirm()`', () => {
+    const confirm = {}
+
+    beforeEach(() => {
+      mock()
+
+      sinon.stub(Rails, 'to')
+
+      Rails.to.returns('MOCK PATHNAME')
+    })
+
+    afterEach(() => {
+      Rails.to.restore()
+    })
+
+    describe('Always', () => {
+      const history = {
+        push: sinon.spy(),
+        getCurrentLocation: sinon.stub().returns({})
+      }
+
+      beforeEach(() => {
+        redirectToConfirm({ confirm, history })
+      })
+
+      it('invokes `Rails.to`', () => {
+        expect(Rails.to)
+          .to.have.been.calledWith({ [Signals.CONFIRM]: confirm }, Signals.CONFIRM_PATTERN)
+      })
+
+      it('invokes `history.getCurrentLocation`', () => {
+        expect(history.getCurrentLocation)
+          .to.have.been.called
+      })
+    })
+
+    describe('`Rails.to()` pathname is the same as `history.getCurrentLocation()` pathname', () => {
+      it('does not invoke `history.push`', () => {
+        const history = {
+          push: sinon.spy(),
+          getCurrentLocation: sinon.stub().returns({
+            pathname: 'MOCK PATHNAME'
+          })
+        }
+
+        redirectToConfirm({ confirm, history })
+
+        expect(history.push)
+          .not.have.been.called
+      })
+    })
+
+    describe('`Rails.to()` pathname is not the same as `history.getCurrentLocation()` pathname', () => {
+      it('invokes `history.push`', () => {
+        const history = {
+          push: sinon.spy(),
+          getCurrentLocation: sinon.stub().returns({
+            pathname: 'MOCK CURRENT LOCATION PATHNAME'
+          })
+        }
+
+        redirectToConfirm({ confirm, history })
+
+        expect(history.push)
+          .to.have.been.calledWith('MOCK PATHNAME')
+      })
+    })
+  })
+
   describe('`redirectFromAlpha()`', () => {
     let redirect
 
@@ -1011,6 +1173,53 @@ describe('shinkansen-pantograph/pantograph', () => {
         const state = {}
 
         redirectFromDebark({ state, history })
+
+        expect(Rails.to)
+          .not.have.been.called
+      })
+    })
+  })
+
+  describe('`redirectFromConfirm()`', () => {
+    let redirect
+
+    const history = {
+      push: sinon.spy(),
+      getCurrentLocation: sinon.stub().returns({})
+    }
+
+    beforeEach(() => {
+      mock()
+
+      redirect = {
+        [Signals.CONFIRM]: 'MOCK CONFIRM'
+      }
+
+      sinon.stub(Rails, 'to')
+
+      Rails.to.returns('MOCK PATHNAME')
+    })
+
+    afterEach(() => {
+      Rails.to.restore()
+    })
+
+    describe('`state` has `redirect` object', () => {
+      it('invokes `Rails.to`', () => {
+        const state = { [Signals.CONFIRM]: { redirect } }
+
+        redirectFromConfirm({ state, history })
+
+        expect(Rails.to)
+          .to.have.been.called
+      })
+    })
+
+    describe('`state` does not have `redirect` object', () => {
+      it('does not invoke `Rails.to`', () => {
+        const state = {}
+
+        redirectFromConfirm({ state, history })
 
         expect(Rails.to)
           .not.have.been.called

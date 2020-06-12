@@ -52,6 +52,16 @@ const DEBARK = {
   SUBMIT: 'DEBARK_SUBMIT'
 }
 
+const CONFIRM = {
+  ERROR: 'CONFIRM_ERROR',
+  ROUTE: 'CONFIRM_ROUTE',
+  MOUNT: 'CONFIRM_MOUNT',
+  FETCH: 'CONFIRM_FETCH',
+  STORE: 'CONFIRM_STORE',
+  CHANGE: 'CONFIRM_CHANGE',
+  SUBMIT: 'CONFIRM_SUBMIT'
+}
+
 const ACTION = {}
 
 const STATE = {}
@@ -105,12 +115,24 @@ export function redirectToDebark ({ debark, history }) {
   if (pathname !== currentPathname) history.push(pathname)
 }
 
+export function redirectToConfirm ({ confirm, history }) {
+  log('redirectToDebark')
+
+  const pathname = Rails.to({ [Signals.CONFIRM]: confirm }, Signals.CONFIRM_PATTERN)
+  const {
+    pathname: currentPathname
+  } = history.getCurrentLocation()
+
+  if (pathname !== currentPathname) history.push(pathname)
+}
+
 export function redirect ({
   redirect: {
     [Signals.ALPHA]: alpha,
     [Signals.OMEGA]: omega,
     [Signals.EMBARK]: embark,
-    [Signals.DEBARK]: debark
+    [Signals.DEBARK]: debark,
+    [Signals.CONFIRM]: confirm
   } = {},
   history
 }) {
@@ -122,6 +144,8 @@ export function redirect ({
     redirectToEmbark({ embark, history })
   } else if (debark) {
     redirectToDebark({ debark, history })
+  } else if (confirm) {
+    redirectToDebark({ confirm, history })
   } else if (alpha) { // can appear on its own
     redirectToAlpha({ alpha, history })
   } else if (omega) { // can not appear on its own
@@ -153,6 +177,12 @@ export function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect: rou
   if (route) redirect({ redirect: route, history })
 }
 
+export function redirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect: route } = {} } = {}, history }) {
+  log('redirectFromConfirm()')
+
+  if (route) redirect({ redirect: route, history })
+}
+
 export function graphite ({ action: { type } = ACTION, state = STATE, history = HISTORY }) {
   switch (type) {
     case OMEGA.ROUTE:
@@ -162,6 +192,9 @@ export function graphite ({ action: { type } = ACTION, state = STATE, history = 
       redirectFromEmbark({ state, history })
       break
     case DEBARK.ROUTE:
+      redirectFromDebark({ state, history })
+      break
+    case CONFIRM.ROUTE:
       redirectFromDebark({ state, history })
       break
     case ALPHA.ROUTE:
@@ -188,6 +221,10 @@ export default class Pantograph {
 
   static get DEBARK () {
     return DEBARK
+  }
+
+  static get CONFIRM () {
+    return CONFIRM
   }
 
   static graphite = graphite
