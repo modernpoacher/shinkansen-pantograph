@@ -1,6 +1,6 @@
 {
   "name": "shinkansen-pantograph",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Shinkansen Pantograph",
   "main": "./index.js",
   "keywords": [
