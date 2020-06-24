@@ -2,7 +2,6 @@
   "name": "shinkansen-pantograph",
   "version": "1.0.15",
   "description": "Shinkansen Pantograph",
-  "main": "./index.js",
   "keywords": [
     "Shinkansen",
     "Pantograph",
@@ -12,12 +11,13 @@
     "React",
     "Router"
   ],
+  "main": "./index.js",
+  "author": "Jonathan Perry for Modern Poacher Limited <modernpoacher@modernpoacher.com>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com/modernpoacher/shinkansen-pantograph.git"
   },
-  "author": "Jonathan Perry for Modern Poacher Limited",
-  "license": "MIT",
   "scripts": {
     "prepublishOnly": "npm run lint:fix && npm run babel",
     "prebuild": "npm run clean",
