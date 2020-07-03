@@ -76,9 +76,8 @@ function mock () {
     FAILURE: 100,
     SUCCESS: 101,
     IN_PROGRESS: 103,
-    NO_DECISION: 104,
-    COMPLETE: 105,
-    PENDING: 106
+    UNKNOWN: 104,
+    COMPLETE: 105
   })
 }
 
