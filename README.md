@@ -2,7 +2,7 @@
 
 # Shinkansen Pantograph
 
-*Pantograph* implements *React* + *Redux* + *React Router* navigation behaviour for Zashiki.
+*Pantograph* implements *React* + *Redux* + *React Router* navigation behaviour for *Zashiki Karakuri*.
 
 ## Usage
 
