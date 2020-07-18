@@ -1,4 +1,4 @@
-## shinkansen-pantograph
+## `shinkansen-pantograph`
 
 # Shinkansen Pantograph
 
