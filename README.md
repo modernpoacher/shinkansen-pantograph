@@ -1,4 +1,4 @@
-## @modernpoacher/shinkansen-pantograph
+## shinkansen-pantograph
 
 # Shinkansen Pantograph
 
