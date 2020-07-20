@@ -4,7 +4,9 @@
   },
   "overrides": [
     {
-      "files": ["pantograph/index.spec.js"],
+      "files": [
+        "pantograph/index.spec.js"
+      ],
       "rules": {
         "no-unused-expressions": "off"
       }
