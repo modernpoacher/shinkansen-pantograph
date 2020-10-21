@@ -1,11 +1,17 @@
+.DS_Store
+
 .circleci
+.github
 
 .editorconfig
 .eslintignore
 .eslintrc
 
+.depsrc
+
 # NPM
 .npmignore
 .npmrc
 
+# Mocha
 test
