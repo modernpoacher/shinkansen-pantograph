@@ -56,12 +56,12 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "husky": "^4.3.6",
+    "husky": "^4.3.7",
     "mocha": "^8.2.1",
     "rimraf": "^3.0.2",
     "shinkansen-rails": "1.0.17",
     "shinkansen-signals": "1.0.17",
-    "sinon": "^9.2.2",
+    "sinon": "^9.2.3",
     "sinon-chai": "^3.5.0"
   },
   "husky": {
