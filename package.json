@@ -61,7 +61,7 @@
     "rimraf": "^3.0.2",
     "shinkansen-rails": "1.0.17",
     "shinkansen-signals": "1.0.17",
-    "sinon": "^9.2.3",
+    "sinon": "^9.2.4",
     "sinon-chai": "^3.5.0"
   },
   "husky": {
