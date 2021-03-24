@@ -43,7 +43,7 @@
     "@babel/eslint-parser": "^7.13.10",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-export-default-from": "^7.12.13",
-    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-env": "^7.13.12",
     "@babel/register": "^7.13.8",
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
@@ -61,7 +61,7 @@
     "rimraf": "^3.0.2",
     "shinkansen-rails": "1.0.17",
     "shinkansen-signals": "1.0.17",
-    "sinon": "^9.2.4",
-    "sinon-chai": "^3.5.0"
+    "sinon": "^10.0.0",
+    "sinon-chai": "^3.6.0"
   }
 }
