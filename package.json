@@ -57,7 +57,7 @@
     "rimraf": "^3.0.2",
     "shinkansen-rails": "1.0.17",
     "shinkansen-signals": "1.0.17",
-    "sinon": "^11.1.0",
+    "sinon": "^11.1.1",
     "sinon-chai": "^3.7.0",
     "standard": "^16.0.3"
   }
