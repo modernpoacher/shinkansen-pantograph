@@ -48,7 +48,7 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "chai": "^4.3.4",
-    "core-js": "^3.13.0",
+    "core-js": "^3.13.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.27.0",
     "eslint-import-resolver-babel-module": "^5.3.1",
@@ -56,7 +56,7 @@
     "mocha": "^8.4.0",
     "rimraf": "^3.0.2",
     "shinkansen-rails": "1.0.17",
-    "shinkansen-signals": "1.0.17",
+    "shinkansen-signals": "1.1.1",
     "sinon": "^11.1.1",
     "sinon-chai": "^3.7.0",
     "standard": "^16.0.3"

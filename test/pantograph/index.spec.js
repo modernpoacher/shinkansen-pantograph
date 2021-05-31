@@ -25,62 +25,6 @@ import Pantograph, {
   graphite
 } from 'shinkansen-pantograph/pantograph'
 
-function mock () {
-  Signals.raise({
-    ALPHA: 'MOCK ALPHA',
-    OMEGA: 'MOCK OMEGA',
-
-    EMBARK: 'MOCK EMBARK',
-    DEBARK: 'MOCK DEBARK',
-
-    INDEX: 'MOCK INDEX',
-
-    ENTER_ALPHA: 'MOCK ENTER_ALPHA',
-    LEAVE_ALPHA: 'MOCK LEAVE_ALPHA',
-
-    CHANGE_ALPHA: 'MOCK CHANGE_ALPHA',
-    REMAIN_ALPHA: 'MOCK REMAIN_ALPHA',
-
-    ENTER_OMEGA: 'MOCK ENTER_OMEGA',
-    LEAVE_OMEGA: 'MOCK LEAVE_OMEGA',
-
-    CHANGE_OMEGA: 'MOCK CHANGE_OMEGA',
-    REMAIN_OMEGA: 'MOCK REMAIN_OMEGA',
-
-    ALPHA_PATTERN: 'MOCK ALPHA_PATTERN',
-    OMEGA_PATTERN: 'MOCK OMEGA_PATTERN',
-
-    EMBARK_STAGE: 'MOCK EMBARK_STAGE',
-    DEBARK_STAGE: 'MOCK DEBARK_STAGE',
-
-    EMBARK_PATTERN: 'MOCK EMBARK_PATTERN',
-    DEBARK_PATTERN: 'MOCK DEBARK_PATTERN',
-
-    ENTER_ALPHA_ENTER_OMEGA: 'MOCK ENTER_ALPHA_ENTER_OMEGA',
-    LEAVE_ALPHA_LEAVE_OMEGA: 'MOCK LEAVE_ALPHA_LEAVE_OMEGA',
-
-    CHANGE_ALPHA_ENTER_OMEGA: 'MOCK CHANGE_ALPHA_ENTER_OMEGA',
-    CHANGE_ALPHA_LEAVE_OMEGA: 'MOCK CHANGE_ALPHA_LEAVE_OMEGA',
-
-    REMAIN_ALPHA_ENTER_OMEGA: 'MOCK REMAIN_ALPHA_ENTER_OMEGA',
-    REMAIN_ALPHA_LEAVE_OMEGA: 'MOCK REMAIN_ALPHA_LEAVE_OMEGA',
-
-    CHANGE_ALPHA_CHANGE_OMEGA: 'MOCK CHANGE_ALPHA_CHANGE_OMEGA',
-    CHANGE_ALPHA_REMAIN_OMEGA: 'MOCK CHANGE_ALPHA_REMAIN_OMEGA',
-
-    REMAIN_ALPHA_CHANGE_OMEGA: 'MOCK REMAIN_ALPHA_CHANGE_OMEGA',
-    REMAIN_ALPHA_REMAIN_OMEGA: 'MOCK REMAIN_ALPHA_REMAIN_OMEGA',
-
-    EXCEPTION: 'MOCK EXCEPTION',
-
-    FAILURE: 100,
-    SUCCESS: 101,
-    IN_PROGRESS: 103,
-    UNKNOWN: 104,
-    COMPLETE: 105
-  })
-}
-
 chai.use(sinonChai)
 
 describe('shinkansen-pantograph/pantograph', () => {
@@ -649,8 +593,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     const alpha = {}
 
     beforeEach(() => {
-      mock()
-
       sinon.stub(Rails, 'to')
 
       Rails.to.returns('MOCK PATHNAME')
@@ -719,8 +661,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     const omega = {}
 
     beforeEach(() => {
-      mock()
-
       sinon.stub(Rails, 'to')
 
       Rails.to.returns('MOCK PATHNAME')
@@ -788,8 +728,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     const embark = {}
 
     beforeEach(() => {
-      mock()
-
       sinon.stub(Rails, 'to')
 
       Rails.to.returns('MOCK PATHNAME')
@@ -857,8 +795,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     const debark = {}
 
     beforeEach(() => {
-      mock()
-
       sinon.stub(Rails, 'to')
 
       Rails.to.returns('MOCK PATHNAME')
@@ -926,8 +862,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     const confirm = {}
 
     beforeEach(() => {
-      mock()
-
       sinon.stub(Rails, 'to')
 
       Rails.to.returns('MOCK PATHNAME')
@@ -1000,8 +934,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     }
 
     beforeEach(() => {
-      mock()
-
       redirect = {
         [Signals.ALPHA]: 'MOCK ALPHA'
       }
@@ -1047,8 +979,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     }
 
     beforeEach(() => {
-      mock()
-
       redirect = {
         [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
       }
@@ -1094,8 +1024,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     }
 
     beforeEach(() => {
-      mock()
-
       redirect = {
         [Signals.EMBARK]: 'MOCK EMBARK'
       }
@@ -1141,8 +1069,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     }
 
     beforeEach(() => {
-      mock()
-
       redirect = {
         [Signals.DEBARK]: 'MOCK DEBARK'
       }
@@ -1188,8 +1114,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     }
 
     beforeEach(() => {
-      mock()
-
       redirect = {
         [Signals.CONFIRM]: 'MOCK CONFIRM'
       }
@@ -1233,8 +1157,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     }
 
     beforeEach(() => {
-      mock()
-
       sinon.stub(Rails, 'to')
 
       Rails.to.returns('MOCK PATHNAME')
@@ -1315,8 +1237,6 @@ describe('shinkansen-pantograph/pantograph', () => {
     }
 
     beforeEach(() => {
-      mock()
-
       sinon.stub(Rails, 'to')
 
       Rails.to.returns('MOCK PATHNAME')
