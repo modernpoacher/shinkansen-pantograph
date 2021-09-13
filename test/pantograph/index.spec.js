@@ -21,7 +21,7 @@ import Pantograph, {
   redirectFromEmbark,
   redirectFromDebark,
   redirectFromConfirm,
-  redirect,
+  redirectTo,
   graphite
 } from 'shinkansen-pantograph/pantograph'
 
@@ -575,9 +575,9 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirect`', () => {
+  describe('`redirectTo`', () => {
     it('is a function', () => {
-      expect(redirect)
+      expect(redirectTo)
         .to.be.a('function')
     })
   })
@@ -947,7 +947,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       Rails.to.restore()
     })
 
-    describe('`state` has `redirect` object', () => {
+    describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to`', () => {
         const state = { [Signals.ALPHA]: { redirect } }
 
@@ -958,7 +958,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`state` does not have `redirect` object', () => {
+    describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to`', () => {
         const state = {}
 
@@ -992,7 +992,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       Rails.to.restore()
     })
 
-    describe('`state` has `redirect` object', () => {
+    describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to`', () => {
         const state = { [Signals.OMEGA]: { redirect } }
 
@@ -1003,7 +1003,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`state` does not have `redirect` object', () => {
+    describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to`', () => {
         const state = {}
 
@@ -1037,7 +1037,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       Rails.to.restore()
     })
 
-    describe('`state` has `redirect` object', () => {
+    describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to`', () => {
         const state = { [Signals.EMBARK]: { redirect } }
 
@@ -1048,7 +1048,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`state` does not have `redirect` object', () => {
+    describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to`', () => {
         const state = {}
 
@@ -1082,7 +1082,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       Rails.to.restore()
     })
 
-    describe('`state` has `redirect` object', () => {
+    describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to`', () => {
         const state = { [Signals.DEBARK]: { redirect } }
 
@@ -1093,7 +1093,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`state` does not have `redirect` object', () => {
+    describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to`', () => {
         const state = {}
 
@@ -1127,7 +1127,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       Rails.to.restore()
     })
 
-    describe('`state` has `redirect` object', () => {
+    describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to`', () => {
         const state = { [Signals.CONFIRM]: { redirect } }
 
@@ -1138,7 +1138,7 @@ describe('shinkansen-pantograph/pantograph', () => {
       })
     })
 
-    describe('`state` does not have `redirect` object', () => {
+    describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to`', () => {
         const state = {}
 
@@ -1150,7 +1150,7 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirect()`', () => {
+  describe('`redirectTo()`', () => {
     const history = {
       push: sinon.spy(),
       getCurrentLocation: sinon.stub().returns({})
@@ -1168,11 +1168,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`redirect` has `Signals.ALPHA`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA'
         }
 
-        redirect({ redirect: route, history })
+        redirectTo({ redirect, history })
 
         expect(Rails.to)
           .to.have.been.called
@@ -1181,11 +1181,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`redirect` has `Signals.ALPHA` and `Signals.OMEGA`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
         }
 
-        redirect({ redirect: route, history })
+        redirectTo({ redirect, history })
 
         expect(Rails.to)
           .to.have.been.called
@@ -1194,11 +1194,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`redirect` has `Signals.EMBARK`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.EMBARK]: 'MOCK EMBARK'
         }
 
-        redirect({ redirect: route, history })
+        redirectTo({ redirect, history })
 
         expect(Rails.to)
           .to.have.been.called
@@ -1207,11 +1207,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`redirect` has `Signals.DEBARK`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.DEBARK]: 'MOCK DEBARK'
         }
 
-        redirect({ redirect: route, history })
+        redirectTo({ redirect, history })
 
         expect(Rails.to)
           .to.have.been.called
@@ -1220,9 +1220,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`redirect` does not have `Signals.ALPHA` or `Signals.OMEGA` or `Signals.EMBARK` or `Signals.DEBARK`', () => {
       it('does not invoke `Rails.to`', () => {
-        const route = {}
+        const redirect = {}
 
-        redirect({ redirect: route, history })
+        redirectTo({ redirect, history })
 
         expect(Rails.to)
           .not.have.been.called
@@ -1248,11 +1248,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`action.type` is `ALPHA.ROUTE`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA'
         }
 
-        graphite({ action: { type: Pantograph.ALPHA.ROUTE }, state: { [Signals.ALPHA]: { redirect: route } }, history })
+        graphite({ action: { type: Pantograph.ALPHA.ROUTE }, state: { [Signals.ALPHA]: { redirect } }, history })
 
         expect(Rails.to)
           .to.have.been.called
@@ -1261,11 +1261,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`action.type` is `OMEGA.ROUTE`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
         }
 
-        graphite({ action: { type: Pantograph.OMEGA.ROUTE }, state: { [Signals.OMEGA]: { redirect: route } }, history })
+        graphite({ action: { type: Pantograph.OMEGA.ROUTE }, state: { [Signals.OMEGA]: { redirect } }, history })
 
         expect(Rails.to)
           .to.have.been.called
@@ -1274,11 +1274,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`action.type` is `EMBARK.ROUTE`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.EMBARK]: 'MOCK EMBARK'
         }
 
-        graphite({ action: { type: Pantograph.EMBARK.ROUTE }, state: { [Signals.EMBARK]: { redirect: route } }, history })
+        graphite({ action: { type: Pantograph.EMBARK.ROUTE }, state: { [Signals.EMBARK]: { redirect } }, history })
 
         expect(Rails.to)
           .to.have.been.called
@@ -1287,11 +1287,11 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`action.type` is `DEBARK.ROUTE`', () => {
       it('invokes `Rails.to`', () => {
-        const route = {
+        const redirect = {
           [Signals.DEBARK]: 'MOCK DEBARK'
         }
 
-        graphite({ action: { type: Pantograph.DEBARK.ROUTE }, state: { [Signals.DEBARK]: { redirect: route } }, history })
+        graphite({ action: { type: Pantograph.DEBARK.ROUTE }, state: { [Signals.DEBARK]: { redirect } }, history })
 
         expect(Rails.to)
           .to.have.been.called

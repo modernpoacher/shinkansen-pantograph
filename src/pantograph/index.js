@@ -126,7 +126,7 @@ export function redirectToConfirm ({ confirm, history }) {
   if (pathname !== currentPathname) history.push(pathname)
 }
 
-export function redirect ({
+export function redirectTo ({
   redirect: {
     [Signals.ALPHA]: alpha,
     [Signals.OMEGA]: omega,
@@ -136,7 +136,7 @@ export function redirect ({
   } = {},
   history
 }) {
-  log('redirect()')
+  log('`redirectTo`')
 
   if (alpha && omega) {
     redirectToOmega({ alpha, omega, history })
@@ -149,38 +149,38 @@ export function redirect ({
   } else if (alpha) { // can appear on its own
     redirectToAlpha({ alpha, history })
   } else if (omega) { // can not appear on its own
-    throw Error('Pantograph encountered a route error in `redirect()`')
+    throw Error('Pantograph encountered a route error in `redirectTo()`')
   }
 }
 
-export function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect: route } = {} } = {}, history }) {
+export function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } = {} } = {}, history }) {
   log('redirectFromAlpha()')
 
-  if (route) redirect({ redirect: route, history })
+  if (redirect) redirectTo({ redirect, history })
 }
 
-export function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect: route } = {} } = {}, history }) {
+export function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } = {} } = {}, history }) {
   log('redirectFromOmega()')
 
-  if (route) redirect({ redirect: route, history })
+  if (redirect) redirectTo({ redirect, history })
 }
 
-export function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect: route } = {} } = {}, history }) {
+export function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect } = {} } = {}, history }) {
   log('redirectFromEmbark()')
 
-  if (route) redirect({ redirect: route, history })
+  if (redirect) redirectTo({ redirect, history })
 }
 
-export function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect: route } = {} } = {}, history }) {
+export function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect } = {} } = {}, history }) {
   log('redirectFromDebark()')
 
-  if (route) redirect({ redirect: route, history })
+  if (redirect) redirectTo({ redirect, history })
 }
 
-export function redirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect: route } = {} } = {}, history }) {
+export function redirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect } = {} } = {}, history }) {
   log('redirectFromConfirm()')
 
-  if (route) redirect({ redirect: route, history })
+  if (redirect) redirectTo({ redirect, history })
 }
 
 export function graphite ({ action: { type } = ACTION, state = STATE, history = HISTORY }) {
@@ -203,10 +203,10 @@ export function graphite ({ action: { type } = ACTION, state = STATE, history = 
   }
 }
 
-export default class Pantograph {
-  /**
-   *  Getters ensure that these fields are read-only
-   */
+/**
+ *  Getters without setters ensure that these fields are read-only
+ */
+class Pantograph {
   static get ALPHA () {
     return ALPHA
   }
@@ -229,3 +229,8 @@ export default class Pantograph {
 
   static graphite = graphite
 }
+
+/**
+ *  As does `freeze`
+ */
+export default Object.freeze(Pantograph)
