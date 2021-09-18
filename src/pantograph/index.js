@@ -8,7 +8,7 @@ import {
   Signals
 } from 'shinkansen-signals'
 
-const log = debug('shinkansen:pantograph')
+const log = debug('shinkansen-pantograph')
 
 const ALPHA = {
   ERROR: 'ALPHA_ERROR',
