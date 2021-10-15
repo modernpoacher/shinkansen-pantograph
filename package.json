@@ -57,7 +57,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "husky": "^7.0.2",
-    "mocha": "^9.1.2",
+    "mocha": "^9.1.3",
     "rimraf": "^3.0.2",
     "shinkansen-rails": "1.0.18",
     "shinkansen-signals": "1.1.2",
