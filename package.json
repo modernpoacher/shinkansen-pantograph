@@ -35,7 +35,7 @@
     "pre-commit": "npm run lint && npm test && npm run build && git add lib"
   },
   "dependencies": {
-    "debug": "^4.3.2"
+    "debug": "^4.3.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
