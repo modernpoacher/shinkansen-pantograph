@@ -1,1 +1,1 @@
-export Pantograph from './pantograph'
+export { default as Pantograph } from './pantograph'
