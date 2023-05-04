@@ -1,6 +1,10 @@
-console.log('(cjs) shinkansen-pantograph')
+require('@babel/register')({ ignore: [/node_modules/], configFile: require.resolve('../babel.config.cjs') })
 
-require('@babel/register')({ configFile: require.resolve('../babel.config.cjs') })
+const debug = require('debug')
+
+const log = debug('shinkansen-pantograph')
+
+log('`shinkansen` is awake')
 
 const { default: Pantograph } = require('./pantograph/index.mjs')
 

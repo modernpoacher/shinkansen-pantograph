@@ -8,7 +8,7 @@ import {
   Signals
 } from 'shinkansen-signals'
 
-const log = debug('shinkansen-pantograph')
+const log = debug('shinkansen-pantograph/pantograph')
 
 const ALPHA = {
   ERROR: 'ALPHA_ERROR',
@@ -72,6 +72,8 @@ const HISTORY = {
     return {}
   }
 }
+
+log('`shinkansen` is awake')
 
 export function redirectToAlpha ({ alpha, history }) {
   log('redirectToAlpha')
@@ -138,7 +140,7 @@ export function redirectTo ({
   } = {},
   history
 }) {
-  log('`redirectTo`')
+  log('redirectTo')
 
   if (alpha && omega) {
     redirectToOmega({ alpha, omega, history })
@@ -156,31 +158,31 @@ export function redirectTo ({
 }
 
 export function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } = {} } = {}, history }) {
-  log('redirectFromAlpha()')
+  log('redirectFromAlpha')
 
   if (redirect) redirectTo({ redirect, history })
 }
 
 export function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } = {} } = {}, history }) {
-  log('redirectFromOmega()')
+  log('redirectFromOmega')
 
   if (redirect) redirectTo({ redirect, history })
 }
 
 export function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect } = {} } = {}, history }) {
-  log('redirectFromEmbark()')
+  log('redirectFromEmbark')
 
   if (redirect) redirectTo({ redirect, history })
 }
 
 export function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect } = {} } = {}, history }) {
-  log('redirectFromDebark()')
+  log('redirectFromDebark')
 
   if (redirect) redirectTo({ redirect, history })
 }
 
 export function redirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect } = {} } = {}, history }) {
-  log('redirectFromConfirm()')
+  log('redirectFromConfirm')
 
   if (redirect) redirectTo({ redirect, history })
 }
