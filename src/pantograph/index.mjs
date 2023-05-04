@@ -67,8 +67,10 @@ const ACTION = {}
 const STATE = {}
 
 const HISTORY = {
-  push: () => {},
-  getCurrentLocation: () => ({})
+  push () {},
+  getCurrentLocation () {
+    return {}
+  }
 }
 
 export function redirectToAlpha ({ alpha, history }) {

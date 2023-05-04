@@ -43,7 +43,8 @@ const plugins = [
   [
     'module-resolver', {
       alias: {
-        'shinkansen-pantograph': './src'
+        'shinkansen-pantograph/pantograph': './src/pantograph/index.mjs',
+        'shinkansen-pantograph': './src/index.cjs'
       }
     }
   ]
@@ -53,8 +54,6 @@ module.exports = (api) => {
   if (api) api.cache.using(env)
 
   return {
-    compact: true,
-    comments: false,
     presets,
     plugins
   }
