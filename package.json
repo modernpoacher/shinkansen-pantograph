@@ -27,7 +27,8 @@
     "lint:fix": "npm run lint -- --fix",
     "pretest": "npm run nvm",
     "test": "cross-env NODE_ENV=test mocha test --recursive",
-    "nvm": "bash nvm.sh"
+    "nvm": "bash nvm.sh",
+    "prepare": "husky install"
   },
   "dependencies": {
     "debug": "^4.3.4"
