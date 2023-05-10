@@ -17,3 +17,6 @@
 
 # Mocha
 test
+
+# Shell
+nvm.sh
