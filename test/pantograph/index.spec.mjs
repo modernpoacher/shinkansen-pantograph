@@ -11,17 +11,17 @@ import {
 } from 'shinkansen-signals'
 
 import Pantograph, {
-  redirectToAlpha,
-  redirectToOmega,
-  redirectToEmbark,
-  redirectToDebark,
-  redirectToConfirm,
-  redirectFromAlpha,
-  redirectFromOmega,
-  redirectFromEmbark,
-  redirectFromDebark,
-  redirectFromConfirm,
-  redirectTo,
+  getRedirectToAlpha,
+  getRedirectToOmega,
+  getRedirectToEmbark,
+  getRedirectToDebark,
+  getRedirectToConfirm,
+  getRedirectFromAlpha,
+  getRedirectFromOmega,
+  getRedirectFromEmbark,
+  getRedirectFromDebark,
+  getRedirectFromConfirm,
+  getRedirectTo,
   graphite
 } from 'shinkansen-pantograph/pantograph'
 
@@ -519,65 +519,65 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirectToAlpha`', () => {
+  describe('`getRedirectToAlpha`', () => {
     it('is a function', () => {
-      return expect(redirectToAlpha)
+      return expect(getRedirectToAlpha)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectToOmega`', () => {
+  describe('`getRedirectToOmega`', () => {
     it('is a function', () => {
-      return expect(redirectToOmega)
+      return expect(getRedirectToOmega)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectToEmbark`', () => {
+  describe('`getRedirectToEmbark`', () => {
     it('is a function', () => {
-      return expect(redirectToEmbark)
+      return expect(getRedirectToEmbark)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectFromAlpha`', () => {
+  describe('`getRedirectFromAlpha`', () => {
     it('is a function', () => {
-      return expect(redirectFromAlpha)
+      return expect(getRedirectFromAlpha)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectFromOmega`', () => {
+  describe('`getRedirectFromOmega`', () => {
     it('is a function', () => {
-      return expect(redirectFromOmega)
+      return expect(getRedirectFromOmega)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectFromEmbark`', () => {
+  describe('`getRedirectFromEmbark`', () => {
     it('is a function', () => {
-      return expect(redirectFromEmbark)
+      return expect(getRedirectFromEmbark)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectFromDebark`', () => {
+  describe('`getRedirectFromDebark`', () => {
     it('is a function', () => {
-      return expect(redirectFromDebark)
+      return expect(getRedirectFromDebark)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectToAlpha`', () => {
+  describe('`getRedirectToAlpha`', () => {
     it('is a function', () => {
-      return expect(redirectToAlpha)
+      return expect(getRedirectToAlpha)
         .to.be.a('function')
     })
   })
 
-  describe('`redirectTo`', () => {
+  describe('`getRedirectTo`', () => {
     it('is a function', () => {
-      return expect(redirectTo)
+      return expect(getRedirectTo)
         .to.be.a('function')
     })
   })
@@ -589,7 +589,7 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirectToAlpha()`', () => {
+  describe('`getRedirectToAlpha()`', () => {
     const alpha = {}
 
     beforeEach(() => {
@@ -603,60 +603,42 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const history = {
-        push: sinon.spy(),
-        getCurrentLocation: sinon.stub().returns({})
-      }
+      const route = {}
 
       beforeEach(() => {
-        redirectToAlpha({ alpha, history })
+        getRedirectToAlpha({ alpha, route })
       })
 
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         return expect(Rails.to)
           .to.have.been.calledWith({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
       })
+    })
 
-      it('invokes `history.getCurrentLocation`', () => {
-        return expect(history.getCurrentLocation)
-          .to.have.been.called
+    describe('`Rails.to()` pathname is the same as `route` pathname', () => {
+      it('returns undefined', () => {
+        const route = {
+          pathname: 'MOCK PATHNAME'
+        }
+
+        return expect(getRedirectToAlpha({ alpha, route }))
+          .to.be.undefined
       })
     })
 
-    describe('`Rails.to()` pathname is the same as `history.getCurrentLocation()` pathname', () => {
-      it('does not invoke `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK PATHNAME'
-          })
+    describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
+      it('returns a string', () => {
+        const route = {
+          pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
 
-        redirectToAlpha({ alpha, history })
-
-        return expect(history.push)
-          .not.have.been.called
-      })
-    })
-
-    describe('`Rails.to()` pathname is not the same as `history.getCurrentLocation()` pathname', () => {
-      it('invokes `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK CURRENT LOCATION PATHNAME'
-          })
-        }
-
-        redirectToAlpha({ alpha, history })
-
-        return expect(history.push)
-          .to.have.been.calledWith('MOCK PATHNAME')
+        return expect(getRedirectToAlpha({ alpha, route }))
+          .to.equal('MOCK PATHNAME')
       })
     })
   })
 
-  describe('`redirectToOmega()`', () => {
+  describe('`getRedirectToOmega()`', () => {
     const alpha = {}
     const omega = {}
 
@@ -671,60 +653,42 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const history = {
-        push: sinon.spy(),
-        getCurrentLocation: sinon.stub().returns({})
-      }
+      const route = {}
 
       beforeEach(() => {
-        redirectToOmega({ alpha, omega, history })
+        getRedirectToOmega({ alpha, omega, route })
       })
 
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         return expect(Rails.to)
           .to.have.been.calledWith({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
       })
+    })
 
-      it('invokes `history.getCurrentLocation`', () => {
-        return expect(history.getCurrentLocation)
-          .to.have.been.called
+    describe('`Rails.to()` pathname is the same as `route` pathname', () => {
+      it('returns undefined', () => {
+        const route = {
+          pathname: 'MOCK PATHNAME'
+        }
+
+        return expect(getRedirectToOmega({ omega, route }))
+          .to.be.undefined
       })
     })
 
-    describe('`Rails.to()` pathname is the same as `history.getCurrentLocation()` pathname', () => {
-      it('does not invoke `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK PATHNAME'
-          })
+    describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
+      it('returns a string', () => {
+        const route = {
+          pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
 
-        redirectToOmega({ omega, history })
-
-        return expect(history.push)
-          .not.have.been.called
-      })
-    })
-
-    describe('`Rails.to()` pathname is not the same as `history.getCurrentLocation()` pathname', () => {
-      it('invokes `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK CURRENT LOCATION PATHNAME'
-          })
-        }
-
-        redirectToOmega({ omega, history })
-
-        return expect(history.push)
-          .to.have.been.calledWith('MOCK PATHNAME')
+        return expect(getRedirectToOmega({ omega, route }))
+          .to.equal('MOCK PATHNAME')
       })
     })
   })
 
-  describe('`redirectToEmbark()`', () => {
+  describe('`getRedirectToEmbark()`', () => {
     const embark = {}
 
     beforeEach(() => {
@@ -738,60 +702,42 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const history = {
-        push: sinon.spy(),
-        getCurrentLocation: sinon.stub().returns({})
-      }
+      const route = {}
 
       beforeEach(() => {
-        redirectToEmbark({ embark, history })
+        getRedirectToEmbark({ embark, route })
       })
 
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         return expect(Rails.to)
           .to.have.been.calledWith({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
       })
+    })
 
-      it('invokes `history.getCurrentLocation`', () => {
-        return expect(history.getCurrentLocation)
-          .to.have.been.called
+    describe('`Rails.to()` pathname is the same as `route` pathname', () => {
+      it('returns undefined', () => {
+        const route = {
+          pathname: 'MOCK PATHNAME'
+        }
+
+        return expect(getRedirectToEmbark({ embark, route }))
+          .to.be.undefined
       })
     })
 
-    describe('`Rails.to()` pathname is the same as `history.getCurrentLocation()` pathname', () => {
-      it('does not invoke `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK PATHNAME'
-          })
+    describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
+      it('returns a string', () => {
+        const route = {
+          pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
 
-        redirectToEmbark({ embark, history })
-
-        return expect(history.push)
-          .not.have.been.called
-      })
-    })
-
-    describe('`Rails.to()` pathname is not the same as `history.getCurrentLocation()` pathname', () => {
-      it('invokes `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK CURRENT LOCATION PATHNAME'
-          })
-        }
-
-        redirectToEmbark({ embark, history })
-
-        return expect(history.push)
-          .to.have.been.calledWith('MOCK PATHNAME')
+        return expect(getRedirectToEmbark({ embark, route }))
+          .to.equal('MOCK PATHNAME')
       })
     })
   })
 
-  describe('`redirectToDebark()`', () => {
+  describe('`getRedirectToDebark()`', () => {
     const debark = {}
 
     beforeEach(() => {
@@ -805,60 +751,42 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const history = {
-        push: sinon.spy(),
-        getCurrentLocation: sinon.stub().returns({})
-      }
+      const route = {}
 
       beforeEach(() => {
-        redirectToDebark({ debark, history })
+        getRedirectToDebark({ debark, route })
       })
 
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         return expect(Rails.to)
           .to.have.been.calledWith({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
       })
+    })
 
-      it('invokes `history.getCurrentLocation`', () => {
-        return expect(history.getCurrentLocation)
-          .to.have.been.called
+    describe('`Rails.to()` pathname is the same as `route` pathname', () => {
+      it('returns undefined', () => {
+        const route = {
+          pathname: 'MOCK PATHNAME'
+        }
+
+        return expect(getRedirectToDebark({ debark, route }))
+          .to.be.undefined
       })
     })
 
-    describe('`Rails.to()` pathname is the same as `history.getCurrentLocation()` pathname', () => {
-      it('does not invoke `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK PATHNAME'
-          })
+    describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
+      it('returns a string', () => {
+        const route = {
+          pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
 
-        redirectToDebark({ debark, history })
-
-        return expect(history.push)
-          .not.have.been.called
-      })
-    })
-
-    describe('`Rails.to()` pathname is not the same as `history.getCurrentLocation()` pathname', () => {
-      it('invokes `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK CURRENT LOCATION PATHNAME'
-          })
-        }
-
-        redirectToDebark({ debark, history })
-
-        return expect(history.push)
-          .to.have.been.calledWith('MOCK PATHNAME')
+        return expect(getRedirectToDebark({ debark, route }))
+          .to.equal('MOCK PATHNAME')
       })
     })
   })
 
-  describe('`redirectToConfirm()`', () => {
+  describe('`getRedirectToConfirm()`', () => {
     const confirm = {}
 
     beforeEach(() => {
@@ -872,66 +800,45 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const history = {
-        push: sinon.spy(),
-        getCurrentLocation: sinon.stub().returns({})
-      }
+      const route = {}
 
       beforeEach(() => {
-        redirectToConfirm({ confirm, history })
+        getRedirectToConfirm({ confirm, route })
       })
 
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         return expect(Rails.to)
           .to.have.been.calledWith({ [Signals.CONFIRM]: confirm }, Signals.CONFIRM_PATTERN)
       })
+    })
 
-      it('invokes `history.getCurrentLocation`', () => {
-        return expect(history.getCurrentLocation)
-          .to.have.been.called
+    describe('`Rails.to()` pathname is the same as `route` pathname', () => {
+      it('returns undefined', () => {
+        const route = {
+          pathname: 'MOCK PATHNAME'
+        }
+
+        return expect(getRedirectToConfirm({ confirm, route }))
+          .to.be.undefined
       })
     })
 
-    describe('`Rails.to()` pathname is the same as `history.getCurrentLocation()` pathname', () => {
-      it('does not invoke `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK PATHNAME'
-          })
+    describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
+      it('invokes `route.push`', () => {
+        const route = {
+          pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
 
-        redirectToConfirm({ confirm, history })
-
-        return expect(history.push)
-          .not.have.been.called
-      })
-    })
-
-    describe('`Rails.to()` pathname is not the same as `history.getCurrentLocation()` pathname', () => {
-      it('invokes `history.push`', () => {
-        const history = {
-          push: sinon.spy(),
-          getCurrentLocation: sinon.stub().returns({
-            pathname: 'MOCK CURRENT LOCATION PATHNAME'
-          })
-        }
-
-        redirectToConfirm({ confirm, history })
-
-        return expect(history.push)
-          .to.have.been.calledWith('MOCK PATHNAME')
+        return expect(getRedirectToConfirm({ confirm, route }))
+          .to.equal('MOCK PATHNAME')
       })
     })
   })
 
-  describe('`redirectFromAlpha()`', () => {
+  describe('`getRedirectFromAlpha()`', () => {
     let redirect
 
-    const history = {
-      push: sinon.spy(),
-      getCurrentLocation: sinon.stub().returns({})
-    }
+    const route = {}
 
     beforeEach(() => {
       redirect = {
@@ -948,10 +855,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` has a `redirect` object', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const state = { [Signals.ALPHA]: { redirect } }
 
-        redirectFromAlpha({ state, history })
+        getRedirectFromAlpha({ state, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -959,10 +866,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` does not have a `redirect` object', () => {
-      it('does not invoke `Rails.to`', () => {
+      it('does not invoke `Rails.to()`', () => {
         const state = {}
 
-        redirectFromAlpha({ state, history })
+        getRedirectFromAlpha({ state, route })
 
         return expect(Rails.to)
           .not.have.been.called
@@ -970,13 +877,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirectFromOmega()`', () => {
+  describe('`getRedirectFromOmega()`', () => {
     let redirect
 
-    const history = {
-      push: sinon.spy(),
-      getCurrentLocation: sinon.stub().returns({})
-    }
+    const route = {}
 
     beforeEach(() => {
       redirect = {
@@ -993,10 +897,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` has a `redirect` object', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const state = { [Signals.OMEGA]: { redirect } }
 
-        redirectFromOmega({ state, history })
+        getRedirectFromOmega({ state, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1004,10 +908,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` does not have a `redirect` object', () => {
-      it('does not invoke `Rails.to`', () => {
+      it('does not invoke `Rails.to()`', () => {
         const state = {}
 
-        redirectFromOmega({ state, history })
+        getRedirectFromOmega({ state, route })
 
         return expect(Rails.to)
           .not.have.been.called
@@ -1015,13 +919,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirectFromEmbark()`', () => {
+  describe('`getRedirectFromEmbark()`', () => {
     let redirect
 
-    const history = {
-      push: sinon.spy(),
-      getCurrentLocation: sinon.stub().returns({})
-    }
+    const route = {}
 
     beforeEach(() => {
       redirect = {
@@ -1038,10 +939,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` has a `redirect` object', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const state = { [Signals.EMBARK]: { redirect } }
 
-        redirectFromEmbark({ state, history })
+        getRedirectFromEmbark({ state, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1049,10 +950,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` does not have a `redirect` object', () => {
-      it('does not invoke `Rails.to`', () => {
+      it('does not invoke `Rails.to()`', () => {
         const state = {}
 
-        redirectFromEmbark({ state, history })
+        getRedirectFromEmbark({ state, route })
 
         return expect(Rails.to)
           .not.have.been.called
@@ -1060,13 +961,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirectFromDebark()`', () => {
+  describe('`getRedirectFromDebark()`', () => {
     let redirect
 
-    const history = {
-      push: sinon.spy(),
-      getCurrentLocation: sinon.stub().returns({})
-    }
+    const route = {}
 
     beforeEach(() => {
       redirect = {
@@ -1083,10 +981,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` has a `redirect` object', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const state = { [Signals.DEBARK]: { redirect } }
 
-        redirectFromDebark({ state, history })
+        getRedirectFromDebark({ state, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1094,10 +992,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` does not have a `redirect` object', () => {
-      it('does not invoke `Rails.to`', () => {
+      it('does not invoke `Rails.to()`', () => {
         const state = {}
 
-        redirectFromDebark({ state, history })
+        getRedirectFromDebark({ state, route })
 
         return expect(Rails.to)
           .not.have.been.called
@@ -1105,13 +1003,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirectFromConfirm()`', () => {
+  describe('`getRedirectFromConfirm()`', () => {
     let redirect
 
-    const history = {
-      push: sinon.spy(),
-      getCurrentLocation: sinon.stub().returns({})
-    }
+    const route = {}
 
     beforeEach(() => {
       redirect = {
@@ -1128,10 +1023,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` has a `redirect` object', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const state = { [Signals.CONFIRM]: { redirect } }
 
-        redirectFromConfirm({ state, history })
+        getRedirectFromConfirm({ state, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1139,10 +1034,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`state` does not have a `redirect` object', () => {
-      it('does not invoke `Rails.to`', () => {
+      it('does not invoke `Rails.to()`', () => {
         const state = {}
 
-        redirectFromConfirm({ state, history })
+        getRedirectFromConfirm({ state, route })
 
         return expect(Rails.to)
           .not.have.been.called
@@ -1150,11 +1045,8 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`redirectTo()`', () => {
-    const history = {
-      push: sinon.spy(),
-      getCurrentLocation: sinon.stub().returns({})
-    }
+  describe('`getRedirectTo()`', () => {
+    const route = {}
 
     beforeEach(() => {
       sinon.stub(Rails, 'to')
@@ -1167,12 +1059,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`redirect` has `Signals.ALPHA`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA'
         }
 
-        redirectTo({ redirect, history })
+        getRedirectTo({ redirect, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1180,12 +1072,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`redirect` has `Signals.ALPHA` and `Signals.OMEGA`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
         }
 
-        redirectTo({ redirect, history })
+        getRedirectTo({ redirect, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1193,12 +1085,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`redirect` has `Signals.EMBARK`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.EMBARK]: 'MOCK EMBARK'
         }
 
-        redirectTo({ redirect, history })
+        getRedirectTo({ redirect, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1206,12 +1098,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`redirect` has `Signals.DEBARK`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.DEBARK]: 'MOCK DEBARK'
         }
 
-        redirectTo({ redirect, history })
+        getRedirectTo({ redirect, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1219,10 +1111,10 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`redirect` does not have `Signals.ALPHA` or `Signals.OMEGA` or `Signals.EMBARK` or `Signals.DEBARK`', () => {
-      it('does not invoke `Rails.to`', () => {
+      it('does not invoke `Rails.to()`', () => {
         const redirect = {}
 
-        redirectTo({ redirect, history })
+        getRedirectTo({ redirect, route })
 
         return expect(Rails.to)
           .not.have.been.called
@@ -1231,10 +1123,7 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`graphite()`', () => {
-    const history = {
-      push: sinon.spy(),
-      getCurrentLocation: sinon.stub().returns({})
-    }
+    const route = {}
 
     beforeEach(() => {
       sinon.stub(Rails, 'to')
@@ -1247,12 +1136,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`action.type` is `ALPHA.ROUTE`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA'
         }
 
-        graphite({ action: { type: Pantograph.ALPHA.ROUTE }, state: { [Signals.ALPHA]: { redirect } }, history })
+        graphite({ action: { type: Pantograph.ALPHA.ROUTE }, state: { [Signals.ALPHA]: { redirect } }, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1260,12 +1149,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`action.type` is `OMEGA.ROUTE`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
         }
 
-        graphite({ action: { type: Pantograph.OMEGA.ROUTE }, state: { [Signals.OMEGA]: { redirect } }, history })
+        graphite({ action: { type: Pantograph.OMEGA.ROUTE }, state: { [Signals.OMEGA]: { redirect } }, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1273,12 +1162,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`action.type` is `EMBARK.ROUTE`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.EMBARK]: 'MOCK EMBARK'
         }
 
-        graphite({ action: { type: Pantograph.EMBARK.ROUTE }, state: { [Signals.EMBARK]: { redirect } }, history })
+        graphite({ action: { type: Pantograph.EMBARK.ROUTE }, state: { [Signals.EMBARK]: { redirect } }, route })
 
         return expect(Rails.to)
           .to.have.been.called
@@ -1286,12 +1175,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('`action.type` is `DEBARK.ROUTE`', () => {
-      it('invokes `Rails.to`', () => {
+      it('invokes `Rails.to()`', () => {
         const redirect = {
           [Signals.DEBARK]: 'MOCK DEBARK'
         }
 
-        graphite({ action: { type: Pantograph.DEBARK.ROUTE }, state: { [Signals.DEBARK]: { redirect } }, history })
+        graphite({ action: { type: Pantograph.DEBARK.ROUTE }, state: { [Signals.DEBARK]: { redirect } }, route })
 
         return expect(Rails.to)
           .to.have.been.called

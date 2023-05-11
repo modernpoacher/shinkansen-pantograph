@@ -66,71 +66,66 @@ const ACTION = {}
 
 const STATE = {}
 
-const HISTORY = {
-  push () {},
-  getCurrentLocation () {
-    return {}
-  }
-}
+const ROUTE = {}
 
 log('`shinkansen` is awake')
 
-export function redirectToAlpha ({ alpha, history }) {
-  log('redirectToAlpha')
+export function getRedirectToAlpha ({ alpha, route }) {
+  log('getRedirectToAlpha')
 
   const pathname = Rails.to({ [Signals.ALPHA]: alpha }, Signals.ALPHA_PATTERN)
   const {
     pathname: currentPathname
-  } = history.getCurrentLocation()
+  } = route
 
-  if (pathname !== currentPathname) history.push(pathname)
+  if (pathname !== currentPathname) return pathname
 }
 
-export function redirectToOmega ({ alpha, omega, history }) {
-  log('redirectToOmega')
+export function getRedirectToOmega ({ alpha, omega, route }) {
+  log('getRedirectToOmega')
 
   const pathname = Rails.to({ [Signals.ALPHA]: alpha, [Signals.OMEGA]: omega }, Signals.OMEGA_PATTERN)
   const {
     pathname: currentPathname
-  } = history.getCurrentLocation()
+  } = route
 
-  if (pathname !== currentPathname) history.push(pathname)
+  if (pathname !== currentPathname) return pathname
 }
 
-export function redirectToEmbark ({ embark, history }) {
-  log('redirectToEmbark')
+export function getRedirectToEmbark ({ embark, route }) {
+  log('getRedirectToEmbark')
 
   const pathname = Rails.to({ [Signals.EMBARK]: embark }, Signals.EMBARK_PATTERN)
   const {
     pathname: currentPathname
-  } = history.getCurrentLocation()
+  } = route
 
-  if (pathname !== currentPathname) history.push(pathname)
+  if (pathname !== currentPathname) return pathname
 }
 
-export function redirectToDebark ({ debark, history }) {
-  log('redirectToDebark')
+export function getRedirectToDebark ({ debark, route }) {
+  log('getRedirectToDebark')
 
   const pathname = Rails.to({ [Signals.DEBARK]: debark }, Signals.DEBARK_PATTERN)
   const {
     pathname: currentPathname
-  } = history.getCurrentLocation()
+  } = route
 
-  if (pathname !== currentPathname) history.push(pathname)
+  if (pathname !== currentPathname) return pathname
 }
 
-export function redirectToConfirm ({ confirm, history }) {
-  log('redirectToDebark')
+export function getRedirectToConfirm ({ confirm, route }) {
+  log('getRedirectToDebark')
 
   const pathname = Rails.to({ [Signals.CONFIRM]: confirm }, Signals.CONFIRM_PATTERN)
   const {
     pathname: currentPathname
-  } = history.getCurrentLocation()
+  } = route
 
-  if (pathname !== currentPathname) history.push(pathname)
+  if (pathname !== currentPathname) return pathname
 }
 
-export function redirectTo ({
+export function getRedirectTo ({
   redirect: {
     [Signals.ALPHA]: alpha,
     [Signals.OMEGA]: omega,
@@ -138,72 +133,67 @@ export function redirectTo ({
     [Signals.DEBARK]: debark,
     [Signals.CONFIRM]: confirm
   } = {},
-  history
+  route
 }) {
-  log('redirectTo')
+  log('getRedirectTo')
 
   if (alpha && omega) {
-    redirectToOmega({ alpha, omega, history })
+    return getRedirectToOmega({ alpha, omega, route })
   } else if (embark) {
-    redirectToEmbark({ embark, history })
+    return getRedirectToEmbark({ embark, route })
   } else if (debark) {
-    redirectToDebark({ debark, history })
+    return getRedirectToDebark({ debark, route })
   } else if (confirm) {
-    redirectToDebark({ confirm, history })
+    return getRedirectToDebark({ confirm, route })
   } else if (alpha) { // can appear on its own
-    redirectToAlpha({ alpha, history })
+    return getRedirectToAlpha({ alpha, route })
   } else if (omega) { // can not appear on its own
-    throw Error('Pantograph encountered a route error in `redirectTo()`')
+    throw Error('Pantograph encountered a route error in `getRedirectTo()`')
   }
 }
 
-export function redirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } = {} } = {}, history }) {
-  log('redirectFromAlpha')
+export function getRedirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } = {} } = {}, route }) {
+  log('getRedirectFromAlpha')
 
-  if (redirect) redirectTo({ redirect, history })
+  if (redirect) return getRedirectTo({ redirect, route })
 }
 
-export function redirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } = {} } = {}, history }) {
-  log('redirectFromOmega')
+export function getRedirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } = {} } = {}, route }) {
+  log('getRedirectFromOmega')
 
-  if (redirect) redirectTo({ redirect, history })
+  if (redirect) return getRedirectTo({ redirect, route })
 }
 
-export function redirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect } = {} } = {}, history }) {
-  log('redirectFromEmbark')
+export function getRedirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect } = {} } = {}, route }) {
+  log('getRedirectFromEmbark')
 
-  if (redirect) redirectTo({ redirect, history })
+  if (redirect) return getRedirectTo({ redirect, route })
 }
 
-export function redirectFromDebark ({ state: { [Signals.DEBARK]: { redirect } = {} } = {}, history }) {
-  log('redirectFromDebark')
+export function getRedirectFromDebark ({ state: { [Signals.DEBARK]: { redirect } = {} } = {}, route }) {
+  log('getRedirectFromDebark')
 
-  if (redirect) redirectTo({ redirect, history })
+  if (redirect) return getRedirectTo({ redirect, route })
 }
 
-export function redirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect } = {} } = {}, history }) {
-  log('redirectFromConfirm')
+export function getRedirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect } = {} } = {}, route }) {
+  log('getRedirectFromConfirm')
 
-  if (redirect) redirectTo({ redirect, history })
+  if (redirect) return getRedirectTo({ redirect, route })
 }
 
-export function graphite ({ action: { type } = ACTION, state = STATE, history = HISTORY }) {
+export function graphite ({ action: { type } = ACTION, state = STATE, route = ROUTE }) {
   switch (type) {
     case OMEGA.ROUTE:
-      redirectFromOmega({ state, history })
-      break
+      return getRedirectFromOmega({ state, route })
     case EMBARK.ROUTE:
-      redirectFromEmbark({ state, history })
-      break
+      return getRedirectFromEmbark({ state, route })
     case DEBARK.ROUTE:
-      redirectFromDebark({ state, history })
-      break
+      return getRedirectFromDebark({ state, route })
     case CONFIRM.ROUTE:
-      redirectFromDebark({ state, history })
-      break
+      return getRedirectFromDebark({ state, route })
     case ALPHA.ROUTE:
-      redirectFromAlpha({ state, history })
-      break
+      return getRedirectFromAlpha({ state, route })
   }
 }
 
