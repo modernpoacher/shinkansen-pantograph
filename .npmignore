@@ -2,10 +2,13 @@
 
 .circleci
 .github
+.husky
 
 .editorconfig
 .eslintignore
 .eslintrc
+
+.gitattributes
 
 .depsrc
 
