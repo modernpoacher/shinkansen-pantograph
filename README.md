@@ -1,6 +1,6 @@
 ## `shinkansen-pantograph`
 
-# Shinkansen Pantograph
+# Pantograph
 
 *Pantograph* implements *React* + *Redux* + *React Router* navigation behaviour for *Zashiki Karakuri*.
 
@@ -27,4 +27,4 @@ export class Pantograph {
 
 ## See also
 
-- [Shinkansen Gears](https://github.com/modernpoacher/shinkansen-gears)
+- [Gears](https://github.com/modernpoacher/shinkansen-gears)
