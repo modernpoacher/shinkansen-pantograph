@@ -28,9 +28,9 @@ import Pantograph, {
 chai.use(sinonChai)
 
 describe('shinkansen-pantograph/pantograph', () => {
-  it('is a function', () => {
+  it('is an object', () => {
     return expect(Pantograph)
-      .to.be.a('function')
+      .to.be.an('object')
   })
 
   describe('`Pantograph.ALPHA`', () => {
@@ -512,9 +512,9 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
   })
 
-  describe('`Pantograph.graphite`', () => {
+  describe('`graphite`', () => {
     it('is a function', () => {
-      return expect(Pantograph.graphite)
+      return expect(graphite)
         .to.be.a('function')
     })
   })
