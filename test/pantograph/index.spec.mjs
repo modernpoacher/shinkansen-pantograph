@@ -1,4 +1,4 @@
-import chai, { expect } from 'chai'
+import { use, expect } from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
@@ -25,7 +25,7 @@ import Pantograph, {
   graphite
 } from 'shinkansen-pantograph/pantograph'
 
-chai.use(sinonChai)
+use(sinonChai)
 
 describe('shinkansen-pantograph/pantograph', () => {
   it('is an object', () => {
