@@ -44,7 +44,7 @@
     "@typescript-eslint/eslint-plugin": "5.61.0",
     "@typescript-eslint/parser": "5.61.0",
     "babel-plugin-module-resolver": "^5.0.0",
-    "chai": "^5.0.0-alpha.1",
+    "chai": "4.3.7",
     "core-js": "^3.32.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.46.0",
@@ -55,7 +55,7 @@
     "mocha": "^10.2.0",
     "rimraf": "^5.0.1",
     "shinkansen-rails": "1.0.84",
-    "shinkansen-signals": "1.1.69",
+    "shinkansen-signals": "1.1.70",
     "sinon": "^15.2.0",
     "sinon-chai": "^3.7.0"
   },
