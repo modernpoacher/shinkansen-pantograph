@@ -59,7 +59,7 @@
     "mocha": "^10.2.0",
     "rimraf": "^5.0.5",
     "shinkansen-rails": "1.0.116",
-    "shinkansen-signals": "1.1.96",
+    "shinkansen-signals": "1.1.97",
     "sinon": "^17.0.1",
     "sinon-chai": "^3.7.0"
   },
