@@ -45,6 +45,7 @@
     "@babel/preset-env": "^7.23.7",
     "@babel/register": "^7.23.7",
     "@modernpoacher/hooks": "^1.0.455",
+    "@sequencemedia/sinon-chai": "^0.0.6",
     "@typescript-eslint/eslint-plugin": "5.61.0",
     "@typescript-eslint/parser": "5.61.0",
     "babel-plugin-module-resolver": "^5.0.0",
@@ -60,8 +61,7 @@
     "rimraf": "^5.0.5",
     "shinkansen-rails": "1.0.122",
     "shinkansen-signals": "1.1.104",
-    "sinon": "^17.0.1",
-    "sinon-chai": "^3.7.0"
+    "sinon": "^17.0.1"
   },
   "exports": {
     ".": {
