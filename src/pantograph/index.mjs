@@ -1,3 +1,8 @@
+/**
+ *  @typedef RouteType {
+ *    pathname: string
+ *  }
+ */
 import debug from 'debug'
 
 import {
