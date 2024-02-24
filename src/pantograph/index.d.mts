@@ -1,5 +1,5 @@
 declare module 'shinkansen-pantograph/pantograph' {
-  import React from 'react'
+  import type React from 'react'
 
   interface RouteType {
     pathname: string
@@ -12,7 +12,7 @@ declare module 'shinkansen-pantograph/pantograph' {
   export function getRedirectToEmbark (embark: { embark: Record<string, unknown>, route: RouteType }): React.JSX.Element | null
   export function getRedirectToDebark (debark: { debark: Record<string, unknown>, route: RouteType }): React.JSX.Element | null
   export function getRedirectToConfirm (confirm: { confirm: Record<string, unknown>, route: RouteType }): React.JSX.Element | null
-  export function getRedirectTo (to: {redirect?: Record<string, unknown>, route: RouteType}): React.JSX.Element | null
+  export function getRedirectTo (to: { redirect?: Record<string, unknown>, route: RouteType }): React.JSX.Element | null
   export function getRedirectFromAlpha (alpha: { state: Record<string, unknown>, route: RouteType }): React.JSX.Element | null
   export function getRedirectFromOmega (omega: { state: Record<string, unknown>, route: RouteType }): React.JSX.Element | null
   export function getRedirectFromEmbark (embark: { state: Record<string, unknown>, route: RouteType }): React.JSX.Element | null
@@ -21,8 +21,4 @@ declare module 'shinkansen-pantograph/pantograph' {
   export function graphite (params: { action: Record<string, unknown>, state: Record<string, unknown>, route: RouteType }): undefined
 
   export default pantograph
-}
-
-declare module 'shinkansen-pantograph' {
-  export { default as Pantograph } from 'shinkansen-pantograph/pantograph'
 }
