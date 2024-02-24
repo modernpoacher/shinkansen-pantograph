@@ -12,6 +12,8 @@
     "Router"
   ],
   "main": "./src/index.cjs",
+  "type": "module",
+  "types": "./src/index.d.cts",
   "author": {
     "name": "Jonathan Perry for Modern Poacher Limited",
     "email": "modernpoacher@modernpoacher.com",
