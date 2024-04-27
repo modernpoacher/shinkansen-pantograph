@@ -46,7 +46,7 @@
     "@babel/register": "^7.23.7",
     "@modernpoacher/hooks": "^1.0.473",
     "@sequencemedia/sinon-chai": "^0.0.6",
-    "@types/react": "^18.3.0",
+    "@types/react": "^18.3.1",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
     "babel-plugin-module-resolver": "^5.0.2",
