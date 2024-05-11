@@ -59,9 +59,9 @@
     "eslint-import-resolver-babel-module": "^5.3.2",
     "husky": "^9.0.11",
     "mocha": "^10.4.0",
-    "rimraf": "^5.0.5",
-    "shinkansen-rails": "1.0.161",
-    "shinkansen-signals": "1.1.139",
+    "rimraf": "^5.0.6",
+    "shinkansen-rails": "1.0.162",
+    "shinkansen-signals": "1.1.140",
     "sinon": "^17.0.2"
   },
   "exports": {
