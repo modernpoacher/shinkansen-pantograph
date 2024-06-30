@@ -19,7 +19,7 @@
     "email": "modernpoacher@modernpoacher.com",
     "url": "http://modernpoacher.com"
   },
-  "license": "MIT",
+  "license": "ISC",
   "engines": {
     "node": ">=18.12.0"
   },
@@ -44,7 +44,7 @@
     "@babel/eslint-parser": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
     "@babel/register": "^7.24.6",
-    "@modernpoacher/hooks": "^1.0.479",
+    "@modernpoacher/hooks": "^1.0.480",
     "@sequencemedia/sinon-chai": "^0.0.6",
     "@types/react": "^18.3.3",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
