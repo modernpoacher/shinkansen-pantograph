@@ -45,7 +45,7 @@
     "@babel/preset-env": "^7.25.3",
     "@babel/register": "^7.24.6",
     "@modernpoacher/hooks": "^1.0.491",
-    "@sequencemedia/sinon-chai": "^0.0.36",
+    "@sequencemedia/sinon-chai": "^0.0.38",
     "@types/react": "^18.3.4",
     "@typescript-eslint/eslint-plugin": "7.18.0",
     "@typescript-eslint/parser": "7.18.0",
@@ -60,8 +60,8 @@
     "husky": "^9.1.5",
     "mocha": "^10.7.3",
     "rimraf": "^6.0.1",
-    "shinkansen-rails": "1.0.206",
-    "shinkansen-signals": "1.1.168",
+    "shinkansen-rails": "1.0.207",
+    "shinkansen-signals": "1.1.169",
     "sinon": "^18.0.0"
   },
   "exports": {
