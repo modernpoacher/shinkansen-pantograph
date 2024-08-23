@@ -42,9 +42,9 @@
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/eslint-parser": "^7.25.1",
-    "@babel/preset-env": "^7.25.3",
+    "@babel/preset-env": "^7.25.4",
     "@babel/register": "^7.24.6",
-    "@modernpoacher/hooks": "^1.0.491",
+    "@modernpoacher/hooks": "^1.0.492",
     "@sequencemedia/sinon-chai": "^0.0.38",
     "@types/react": "^18.3.4",
     "@typescript-eslint/eslint-plugin": "7.18.0",
@@ -60,7 +60,7 @@
     "husky": "^9.1.5",
     "mocha": "^10.7.3",
     "rimraf": "^6.0.1",
-    "shinkansen-rails": "1.0.207",
+    "shinkansen-rails": "1.0.208",
     "shinkansen-signals": "1.1.169",
     "sinon": "^18.0.0"
   },
