@@ -59,8 +59,8 @@
     "husky": "^9.1.6",
     "mocha": "^10.8.2",
     "rimraf": "^6.0.1",
-    "shinkansen-rails": "1.0.244",
-    "shinkansen-signals": "1.1.180",
+    "shinkansen-rails": "1.0.246",
+    "shinkansen-signals": "1.1.181",
     "sinon": "^19.0.2"
   },
   "exports": {
