@@ -57,7 +57,7 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-import-resolver-babel-module": "^5.3.2",
     "husky": "^9.1.7",
-    "mocha": "^10.8.2",
+    "mocha": "^11.0.1",
     "rimraf": "^6.0.1",
     "shinkansen-rails": "1.0.256",
     "shinkansen-signals": "1.1.184",
