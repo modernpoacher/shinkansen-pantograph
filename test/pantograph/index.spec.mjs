@@ -1,14 +1,19 @@
-import { use, expect } from 'chai'
+// @ts-nocheck
+
+import {
+  use,
+  expect
+} from 'chai'
 import sinon from 'sinon'
 import sinonChai from '@sequencemedia/sinon-chai'
 
 import {
-  Rails
-} from 'shinkansen-rails'
-
-import {
   Signals
 } from 'shinkansen-signals'
+
+import {
+  Rails
+} from 'shinkansen-rails'
 
 import Pantograph, {
   getRedirectToAlpha,
@@ -23,11 +28,11 @@ import Pantograph, {
   getRedirectFromConfirm,
   getRedirectTo,
   graphite
-} from 'shinkansen-pantograph/pantograph'
+} from '#pantograph/pantograph'
 
 use(sinonChai)
 
-describe('shinkansen-pantograph/pantograph', () => {
+describe('#pantograph/pantograph', () => {
   it('is an object', () => {
     return expect(Pantograph)
       .to.be.an('object')
@@ -590,6 +595,9 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectToAlpha()`', () => {
+    /**
+     *  @type {PantographTypes.ResourceType}
+     */
     const alpha = {}
 
     beforeEach(() => {
@@ -603,7 +611,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const route = {}
+      /**
+       *  @type {PantographTypes.RouteType}
+       */
+      const route = {
+        pathname: 'MOCK PATHNAME'
+      }
 
       beforeEach(() => {
         getRedirectToAlpha({ alpha, route })
@@ -617,6 +630,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is the same as `route` pathname', () => {
       it('returns undefined', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK PATHNAME'
         }
@@ -628,6 +644,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
       it('returns a string', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
@@ -639,7 +658,14 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectToOmega()`', () => {
+    /**
+     *  @type {PantographTypes.ResourceType}
+     */
     const alpha = {}
+
+    /**
+     *  @type {PantographTypes.ResourceType}
+     */
     const omega = {}
 
     beforeEach(() => {
@@ -653,7 +679,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const route = {}
+      /**
+       *  @type {PantographTypes.RouteType}
+       */
+      const route = {
+        pathname: 'MOCK PATHNAME'
+      }
 
       beforeEach(() => {
         getRedirectToOmega({ alpha, omega, route })
@@ -667,28 +698,37 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is the same as `route` pathname', () => {
       it('returns undefined', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK PATHNAME'
         }
 
-        return expect(getRedirectToOmega({ omega, route }))
+        return expect(getRedirectToOmega({ alpha, omega, route }))
           .to.be.undefined
       })
     })
 
     describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
       it('returns a string', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
 
-        return expect(getRedirectToOmega({ omega, route }))
+        return expect(getRedirectToOmega({ alpha, omega, route }))
           .to.equal('MOCK PATHNAME')
       })
     })
   })
 
   describe('`getRedirectToEmbark()`', () => {
+    /**
+     *  @type {PantographTypes.ResourceType}
+     */
     const embark = {}
 
     beforeEach(() => {
@@ -702,7 +742,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const route = {}
+      /**
+       *  @type {PantographTypes.RouteType}
+       */
+      const route = {
+        pathname: 'MOCK PATHNAME'
+      }
 
       beforeEach(() => {
         getRedirectToEmbark({ embark, route })
@@ -716,6 +761,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is the same as `route` pathname', () => {
       it('returns undefined', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK PATHNAME'
         }
@@ -727,6 +775,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
       it('returns a string', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
@@ -738,6 +789,9 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectToDebark()`', () => {
+    /**
+     *  @type {PantographTypes.ResourceType}
+     */
     const debark = {}
 
     beforeEach(() => {
@@ -751,7 +805,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const route = {}
+      /**
+       *  @type {PantographTypes.RouteType}
+       */
+      const route = {
+        pathname: 'MOCK PATHNAME'
+      }
 
       beforeEach(() => {
         getRedirectToDebark({ debark, route })
@@ -765,6 +824,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is the same as `route` pathname', () => {
       it('returns undefined', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK PATHNAME'
         }
@@ -776,6 +838,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
       it('returns a string', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
@@ -787,6 +852,9 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectToConfirm()`', () => {
+    /**
+     *  @type {PantographTypes.ResourceType}
+     */
     const confirm = {}
 
     beforeEach(() => {
@@ -800,7 +868,12 @@ describe('shinkansen-pantograph/pantograph', () => {
     })
 
     describe('Always', () => {
-      const route = {}
+      /**
+       *  @type {PantographTypes.RouteType}
+       */
+      const route = {
+        pathname: 'MOCK PATHNAME'
+      }
 
       beforeEach(() => {
         getRedirectToConfirm({ confirm, route })
@@ -814,6 +887,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is the same as `route` pathname', () => {
       it('returns undefined', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK PATHNAME'
         }
@@ -825,6 +901,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`Rails.to()` pathname is not the same as `route` pathname', () => {
       it('invokes `route.push`', () => {
+        /**
+         *  @type {PantographTypes.RouteType}
+         */
         const route = {
           pathname: 'MOCK CURRENT LOCATION PATHNAME'
         }
@@ -836,9 +915,17 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectFromAlpha()`', () => {
+    /**
+     *  @type {Record<string, string>}
+     */
     let redirect
 
-    const route = {}
+    /**
+     *  @type {PantographTypes.RouteType}
+     */
+    const route = {
+      pathname: 'MOCK PATHNAME'
+    }
 
     beforeEach(() => {
       redirect = {
@@ -856,6 +943,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = { [Signals.ALPHA]: { redirect } }
 
         getRedirectFromAlpha({ state, route })
@@ -867,6 +957,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = {}
 
         getRedirectFromAlpha({ state, route })
@@ -878,9 +971,17 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectFromOmega()`', () => {
+    /**
+     *  @type {Record<string, string>}
+     */
     let redirect
 
-    const route = {}
+    /**
+     *  @type {PantographTypes.RouteType}
+     */
+    const route = {
+      pathname: 'MOCK PATHNAME'
+    }
 
     beforeEach(() => {
       redirect = {
@@ -898,6 +999,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = { [Signals.OMEGA]: { redirect } }
 
         getRedirectFromOmega({ state, route })
@@ -909,6 +1013,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = {}
 
         getRedirectFromOmega({ state, route })
@@ -920,9 +1027,17 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectFromEmbark()`', () => {
+    /**
+     *  @type {Record<string, string>}
+     */
     let redirect
 
-    const route = {}
+    /**
+     *  @type {PantographTypes.RouteType}
+     */
+    const route = {
+      pathname: 'MOCK PATHNAME'
+    }
 
     beforeEach(() => {
       redirect = {
@@ -940,6 +1055,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = { [Signals.EMBARK]: { redirect } }
 
         getRedirectFromEmbark({ state, route })
@@ -951,6 +1069,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = {}
 
         getRedirectFromEmbark({ state, route })
@@ -962,9 +1083,17 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectFromDebark()`', () => {
+    /**
+     *  @type {Record<string, string>}
+     */
     let redirect
 
-    const route = {}
+    /**
+     *  @type {PantographTypes.RouteType}
+     */
+    const route = {
+      pathname: 'MOCK PATHNAME'
+    }
 
     beforeEach(() => {
       redirect = {
@@ -982,6 +1111,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = { [Signals.DEBARK]: { redirect } }
 
         getRedirectFromDebark({ state, route })
@@ -993,6 +1125,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = {}
 
         getRedirectFromDebark({ state, route })
@@ -1004,9 +1139,17 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectFromConfirm()`', () => {
+    /**
+     *  @type {Record<string, string>}
+     */
     let redirect
 
-    const route = {}
+    /**
+     *  @type {PantographTypes.RouteType}
+     */
+    const route = {
+      pathname: 'MOCK PATHNAME'
+    }
 
     beforeEach(() => {
       redirect = {
@@ -1024,6 +1167,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` has a `redirect` object', () => {
       it('invokes `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.ResourceType}
+         */
         const state = { [Signals.CONFIRM]: { redirect } }
 
         getRedirectFromConfirm({ state, route })
@@ -1035,6 +1181,9 @@ describe('shinkansen-pantograph/pantograph', () => {
 
     describe('`state` does not have a `redirect` object', () => {
       it('does not invoke `Rails.to()`', () => {
+        /**
+         *  @type {PantographTypes.StateType}
+         */
         const state = {}
 
         getRedirectFromConfirm({ state, route })
@@ -1046,7 +1195,12 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`getRedirectTo()`', () => {
-    const route = {}
+    /**
+     *  @type {PantographTypes.RouteType}
+     */
+    const route = {
+      pathname: 'MOCK PATHNAME'
+    }
 
     beforeEach(() => {
       sinon.stub(Rails, 'to')
@@ -1123,7 +1277,12 @@ describe('shinkansen-pantograph/pantograph', () => {
   })
 
   describe('`graphite()`', () => {
-    const route = {}
+    /**
+     *  @type {PantographTypes.RouteType}
+     */
+    const route = {
+      pathname: 'MOCK PATHNAME'
+    }
 
     beforeEach(() => {
       sinon.stub(Rails, 'to')

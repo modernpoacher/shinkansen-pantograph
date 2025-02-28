@@ -2,7 +2,8 @@
   "compilerOptions": {
     "module": "NodeNext",
     "target": "ESNext",
-    "moduleResolution": "NodeNext",
+    "allowJs": true,
+    "checkJs": true,
     "noEmit": true,
     "strict": true,
     "isolatedModules": true,

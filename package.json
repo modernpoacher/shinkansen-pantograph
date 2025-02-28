@@ -11,9 +11,9 @@
     "React",
     "Router"
   ],
-  "main": "./src/index.cjs",
+  "main": "./src/index.mjs",
   "type": "module",
-  "types": "./src/index.d.mts",
+  "types": "./index.d.mts",
   "author": {
     "name": "Jonathan Perry for Modern Poacher Limited",
     "email": "modernpoacher@modernpoacher.com",
@@ -28,7 +28,7 @@
     "url": "git+ssh://git@github.com/modernpoacher/shinkansen-pantograph.git"
   },
   "scripts": {
-    "lint": "eslint . --ext .mjs,.cjs,.mts,.cts",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
     "nvm": "bash nvm.sh",
     "prelint": "npm run nvm",
@@ -43,25 +43,32 @@
     "@babel/core": "^7.26.9",
     "@babel/eslint-parser": "^7.26.8",
     "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
     "@babel/register": "^7.25.9",
+    "@sequencemedia/eslint-config-standard": "^0.2.35",
+    "@sequencemedia/eslint-config-typescript": "^0.1.50",
     "@sequencemedia/sinon-chai": "^0.0.124",
-    "@types/react": "^19.0.10",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0",
-    "babel-plugin-module-resolver": "^5.0.2",
+    "@types/babel__register": "^7.17.3",
+    "@types/chai": "^5.0.1",
+    "@types/debug": "^4.1.12",
+    "@types/mocha": "^10.0.10",
+    "@types/sinon": "^17.0.4",
     "chai": "^5.2.0",
-    "core-js": "^3.40.0",
     "cross-env": "^7.0.3",
-    "eslint": "8.57.1",
-    "eslint-config-love": "47.0.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-import-resolver-babel-module": "^5.3.2",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
     "husky": "^9.1.7",
     "mocha": "^11.1.0",
-    "rimraf": "^6.0.1",
     "shinkansen-rails": "1.0.293",
     "shinkansen-signals": "1.1.222",
     "sinon": "^19.0.2"
+  },
+  "imports": {
+    "#pantograph": {
+      "require": "./src/index.cjs",
+      "import": "./src/index.mjs"
+    },
+    "#pantograph/pantograph": "./src/pantograph/index.mjs"
   },
   "exports": {
     ".": {

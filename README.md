@@ -12,18 +12,24 @@ import {
 } from 'shinkansen-pantograph'
 ```
 
-*Pantograph* exposes constants to be used by *Redux* actions and reducers, and the method `graphite` to raise *React Router* navigation events in middleware.
-
 ```javascript
-export class Pantograph {
-  static ALPHA
-  static OMEGA
-  static EMBARK
-  static DEBARK
-  static CONFIRM
-  static graphite () { }
-}
+import Pantograph, {
+  getRedirectToAlpha,
+  getRedirectToOmega,
+  getRedirectToEmbark,
+  getRedirectToDebark,
+  getRedirectToConfirm,
+  getRedirectFromAlpha,
+  getRedirectFromOmega,
+  getRedirectFromEmbark,
+  getRedirectFromDebark,
+  getRedirectFromConfirm,
+  getRedirectTo,
+  graphite
+} from 'shinkansen-pantograph/pantograph'
 ```
+
+*Pantograph* exposes constants to be used by *Redux* actions and reducers and the method `graphite` to resolve *React Router* paths from *Zashiki* route resource objects.
 
 ## See also
 

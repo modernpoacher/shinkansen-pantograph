@@ -1,9 +1,20 @@
+/**
+ *  @typedef {PantographTypes.Pantograph.AlphaType} AlphaType
+ *  @typedef {PantographTypes.Pantograph.OmegaType} OmegaType
+ *  @typedef {PantographTypes.Pantograph.EmbarkType} EmbarkType
+ *  @typedef {PantographTypes.Pantograph.DebarkType} DebarkType
+ *  @typedef {PantographTypes.Pantograph.ConfirmType} ConfirmType
+ */
+
 import debug from 'debug'
 
 const log = debug('shinkansen-pantograph/pantograph')
 
 log('`shinkansen` is awake')
 
+/**
+ *  @type {AlphaType}
+ */
 export const ALPHA = {
   ERROR: 'ALPHA_ERROR',
   ROUTE: 'ALPHA_ROUTE',
@@ -15,6 +26,9 @@ export const ALPHA = {
   SUBMIT: 'ALPHA_SUBMIT'
 }
 
+/**
+ *  @type {OmegaType}
+ */
 export const OMEGA = {
   ERROR: 'OMEGA_ERROR',
   ROUTE: 'OMEGA_ROUTE',
@@ -26,6 +40,9 @@ export const OMEGA = {
   SUBMIT: 'OMEGA_SUBMIT'
 }
 
+/**
+ *  @type {EmbarkType}
+ */
 export const EMBARK = {
   ERROR: 'EMBARK_ERROR',
   ROUTE: 'EMBARK_ROUTE',
@@ -36,6 +53,9 @@ export const EMBARK = {
   SUBMIT: 'EMBARK_SUBMIT'
 }
 
+/**
+ *  @type {DebarkType}
+ */
 export const DEBARK = {
   ERROR: 'DEBARK_ERROR',
   ROUTE: 'DEBARK_ROUTE',
@@ -46,6 +66,9 @@ export const DEBARK = {
   SUBMIT: 'DEBARK_SUBMIT'
 }
 
+/**
+ *  @type {ConfirmType}
+ */
 export const CONFIRM = {
   ERROR: 'CONFIRM_ERROR',
   ROUTE: 'CONFIRM_ROUTE',

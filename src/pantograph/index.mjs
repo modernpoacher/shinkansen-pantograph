@@ -1,17 +1,32 @@
 /**
- *  @typedef RouteType {
- *    pathname: string
- *  }
+ *  @typedef {PantographTypes.ActionType} ActionType
+ *  @typedef {PantographTypes.StateType} StateType
+ *  @typedef {PantographTypes.RouteType} RouteType
+ *
+ *  @typedef {PantographTypes.RedirectToAlphaParams} RedirectToAlphaParams
+ *  @typedef {PantographTypes.RedirectToOmegaParams} RedirectToOmegaParams
+ *  @typedef {PantographTypes.RedirectToEmbarkParams} RedirectToEmbarkParams
+ *  @typedef {PantographTypes.RedirectToDebarkParams} RedirectToDebarkParams
+ *  @typedef {PantographTypes.RedirectToConfirmParams} RedirectToConfirmParams
+ *  @typedef {PantographTypes.RedirectToParams} RedirectToParams
+ *
+ *  @typedef {PantographTypes.RedirectFromAlphaParams} RedirectFromAlphaParams
+ *  @typedef {PantographTypes.RedirectFromOmegaParams} RedirectFromOmegaParams
+ *  @typedef {PantographTypes.RedirectFromEmbarkParams} RedirectFromEmbarkParams
+ *  @typedef {PantographTypes.RedirectFromDebarkParams} RedirectFromDebarkParams
+ *  @typedef {PantographTypes.RedirectFromConfirmParams} RedirectFromConfirmParams
+ *  @typedef {PantographTypes.GraphiteParams} GraphiteParams
  */
-import debug from 'debug'
 
-import {
-  Rails
-} from 'shinkansen-rails'
+import debug from 'debug'
 
 import {
   Signals
 } from 'shinkansen-signals'
+
+import {
+  Rails
+} from 'shinkansen-rails'
 
 import pantograph, {
   ALPHA,
@@ -25,12 +40,25 @@ const log = debug('shinkansen-pantograph/pantograph')
 
 log('`shinkansen` is awake')
 
+/**
+ *  @type {ActionType}
+ */
 const ACTION = {}
 
+/**
+ *  @type {StateType}
+ */
 const STATE = {}
 
+/**
+ *  @type {RouteType}
+ */
 const ROUTE = {}
 
+/**
+ *  @param {RedirectToAlphaParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectToAlpha ({ alpha, route }) {
   log('getRedirectToAlpha')
 
@@ -42,6 +70,10 @@ export function getRedirectToAlpha ({ alpha, route }) {
   if (pathname !== currentPathname) return pathname
 }
 
+/**
+ *  @param {RedirectToOmegaParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectToOmega ({ alpha, omega, route }) {
   log('getRedirectToOmega')
 
@@ -53,6 +85,10 @@ export function getRedirectToOmega ({ alpha, omega, route }) {
   if (pathname !== currentPathname) return pathname
 }
 
+/**
+ *  @param {RedirectToEmbarkParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectToEmbark ({ embark, route }) {
   log('getRedirectToEmbark')
 
@@ -64,6 +100,10 @@ export function getRedirectToEmbark ({ embark, route }) {
   if (pathname !== currentPathname) return pathname
 }
 
+/**
+ *  @param {RedirectToDebarkParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectToDebark ({ debark, route }) {
   log('getRedirectToDebark')
 
@@ -75,6 +115,10 @@ export function getRedirectToDebark ({ debark, route }) {
   if (pathname !== currentPathname) return pathname
 }
 
+/**
+ *  @param {RedirectToConfirmParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectToConfirm ({ confirm, route }) {
   log('getRedirectToDebark')
 
@@ -86,6 +130,10 @@ export function getRedirectToConfirm ({ confirm, route }) {
   if (pathname !== currentPathname) return pathname
 }
 
+/**
+ *  @param {RedirectToParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectTo ({
   redirect: {
     [Signals.ALPHA]: alpha,
@@ -113,11 +161,20 @@ export function getRedirectTo ({
   }
 }
 
+/**
+ *  @param {RedirectFromAlphaParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromAlpha')
 
   if (redirect) return getRedirectTo({ redirect, route })
 }
+
+/**
+ *  @param {RedirectFromOmegaParams} params
+ *  @returns {string | undefined}
+ */
 
 export function getRedirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromOmega')
@@ -125,24 +182,40 @@ export function getRedirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } =
   if (redirect) return getRedirectTo({ redirect, route })
 }
 
+/**
+ *  @param {RedirectFromEmbarkParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromEmbark')
 
   if (redirect) return getRedirectTo({ redirect, route })
 }
 
+/**
+ *  @param {RedirectFromDebarkParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectFromDebark ({ state: { [Signals.DEBARK]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromDebark')
 
   if (redirect) return getRedirectTo({ redirect, route })
 }
 
+/**
+ *  @param {RedirectFromConfirmParams} params
+ *  @returns {string | undefined}
+ */
 export function getRedirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromConfirm')
 
   if (redirect) return getRedirectTo({ redirect, route })
 }
 
+/**
+ *  @param {GraphiteParams} params
+ *  @returns {string | undefined}
+ */
 export function graphite ({ action: { type } = ACTION, state = STATE, route = ROUTE }) {
   switch (type) {
     case OMEGA.ROUTE:

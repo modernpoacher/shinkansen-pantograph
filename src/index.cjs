@@ -11,7 +11,7 @@ const log = debug('shinkansen-pantograph')
 log('`shinkansen` is awake')
 
 const {
-  default: Pantograph
+  default: Pantograph // @ts-expect-error MJS
 } = require('./pantograph/index.mjs')
 
 module.exports.Pantograph = Pantograph
