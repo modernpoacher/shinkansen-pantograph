@@ -1,13 +1,13 @@
-import {
+const {
   use,
-  expect
-} from 'chai'
-import sinonChai from '@sequencemedia/sinon-chai'
+  expect // @ts-expect-error @types/chai
+} = require('chai')
+const sinonChai = require('@sequencemedia/sinon-chai')
 
-import {
+const {
   Pantograph,
   graphite
-} from '#pantograph'
+} = require('#pantograph')
 
 use(sinonChai)
 

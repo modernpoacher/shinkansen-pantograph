@@ -8,7 +8,7 @@
 
 import debug from 'debug'
 
-const log = debug('shinkansen-pantograph/pantograph')
+const log = debug('shinkansen-pantograph/pantograph/pantograph')
 
 log('`shinkansen` is awake')
 

@@ -7,6 +7,18 @@
     "noEmit": true,
     "strict": true,
     "isolatedModules": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "#pantograph": [
+        "src/index.cjs",
+        "src/index.mjs"
+      ],
+      "#pantograph/pantograph": [
+        "src/pantograph/index.mjs"
+      ],
+      "#pantograph/pantograph/pantograph": [
+        "src/pantograph/pantograph.mjs"
+      ]
+    }
   }
 }

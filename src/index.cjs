@@ -11,7 +11,9 @@ const log = debug('shinkansen-pantograph')
 log('`shinkansen` is awake')
 
 const {
-  default: Pantograph // @ts-expect-error MJS
+  default: Pantograph,
+  graphite // @ts-expect-error MJS
 } = require('./pantograph/index.mjs')
 
 module.exports.Pantograph = Pantograph
+module.exports.graphite = graphite

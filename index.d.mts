@@ -1,15 +1,16 @@
 declare global {
   namespace PantographTypes {
     export type ResourceType = Record<string, unknown> | Record<string, never>
+    export type RedirectType = Record<string, ResourceType> | Record<string, never>
 
     export interface ActionType {
       type?: string
     }
 
-    export type StateType = Record<string, unknown> | Record<string, never>
+    export type StateType = Record<string, { redirect?: RedirectType }> | Record<string, never>
 
     export interface RouteType {
-      pathname: string
+      pathname?: string
     }
 
     export interface RedirectToAlphaParams {
@@ -39,7 +40,7 @@ declare global {
     }
 
     export interface RedirectToParams {
-      redirect?: ResourceType
+      redirect?: RedirectType
       route: RouteType
     }
 

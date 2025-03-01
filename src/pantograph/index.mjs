@@ -57,7 +57,7 @@ const ROUTE = {}
 
 /**
  *  @param {RedirectToAlphaParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectToAlpha ({ alpha, route }) {
   log('getRedirectToAlpha')
@@ -72,7 +72,7 @@ export function getRedirectToAlpha ({ alpha, route }) {
 
 /**
  *  @param {RedirectToOmegaParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectToOmega ({ alpha, omega, route }) {
   log('getRedirectToOmega')
@@ -87,7 +87,7 @@ export function getRedirectToOmega ({ alpha, omega, route }) {
 
 /**
  *  @param {RedirectToEmbarkParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectToEmbark ({ embark, route }) {
   log('getRedirectToEmbark')
@@ -102,7 +102,7 @@ export function getRedirectToEmbark ({ embark, route }) {
 
 /**
  *  @param {RedirectToDebarkParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectToDebark ({ debark, route }) {
   log('getRedirectToDebark')
@@ -117,7 +117,7 @@ export function getRedirectToDebark ({ debark, route }) {
 
 /**
  *  @param {RedirectToConfirmParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectToConfirm ({ confirm, route }) {
   log('getRedirectToDebark')
@@ -132,7 +132,7 @@ export function getRedirectToConfirm ({ confirm, route }) {
 
 /**
  *  @param {RedirectToParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectTo ({
   redirect: {
@@ -153,7 +153,7 @@ export function getRedirectTo ({
   } else if (debark) {
     return getRedirectToDebark({ debark, route })
   } else if (confirm) {
-    return getRedirectToDebark({ confirm, route })
+    return getRedirectToConfirm({ confirm, route })
   } else if (alpha) { // can appear on its own
     return getRedirectToAlpha({ alpha, route })
   } else if (omega) { // can not appear on its own
@@ -163,7 +163,7 @@ export function getRedirectTo ({
 
 /**
  *  @param {RedirectFromAlphaParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromAlpha')
@@ -173,7 +173,7 @@ export function getRedirectFromAlpha ({ state: { [Signals.ALPHA]: { redirect } =
 
 /**
  *  @param {RedirectFromOmegaParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 
 export function getRedirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } = {} } = {}, route }) {
@@ -184,7 +184,7 @@ export function getRedirectFromOmega ({ state: { [Signals.OMEGA]: { redirect } =
 
 /**
  *  @param {RedirectFromEmbarkParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromEmbark')
@@ -194,7 +194,7 @@ export function getRedirectFromEmbark ({ state: { [Signals.EMBARK]: { redirect }
 
 /**
  *  @param {RedirectFromDebarkParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectFromDebark ({ state: { [Signals.DEBARK]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromDebark')
@@ -204,7 +204,7 @@ export function getRedirectFromDebark ({ state: { [Signals.DEBARK]: { redirect }
 
 /**
  *  @param {RedirectFromConfirmParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function getRedirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect } = {} } = {}, route }) {
   log('getRedirectFromConfirm')
@@ -214,7 +214,7 @@ export function getRedirectFromConfirm ({ state: { [Signals.CONFIRM]: { redirect
 
 /**
  *  @param {GraphiteParams} params
- *  @returns {string | undefined}
+ *  @returns {string | undefined | void}
  */
 export function graphite ({ action: { type } = ACTION, state = STATE, route = ROUTE }) {
   switch (type) {

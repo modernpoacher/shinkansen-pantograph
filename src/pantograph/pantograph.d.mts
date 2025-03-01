@@ -1,8 +1,8 @@
-export type AlphaType = PantographTypes.Pantograph.AlphaType
-export type OmegaType = PantographTypes.Pantograph.OmegaType
-export type EmbarkType = PantographTypes.Pantograph.EmbarkType
-export type DebarkType = PantographTypes.Pantograph.DebarkType
-export type ConfirmType = PantographTypes.Pantograph.ConfirmType
+type AlphaType = PantographTypes.Pantograph.AlphaType
+type OmegaType = PantographTypes.Pantograph.OmegaType
+type EmbarkType = PantographTypes.Pantograph.EmbarkType
+type DebarkType = PantographTypes.Pantograph.DebarkType
+type ConfirmType = PantographTypes.Pantograph.ConfirmType
 
 export declare const ALPHA: AlphaType
 export declare const OMEGA: OmegaType

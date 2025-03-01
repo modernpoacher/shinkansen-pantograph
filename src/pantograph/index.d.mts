@@ -1,29 +1,27 @@
-export type RedirectToAlphaParams = PantographTypes.RedirectToAlphaParams
-export type RedirectToOmegaParams = PantographTypes.RedirectToOmegaParams
-export type RedirectToEmbarkParams = PantographTypes.RedirectToEmbarkParams
-export type RedirectToDebarkParams = PantographTypes.RedirectToDebarkParams
-export type RedirectToConfirmParams = PantographTypes.RedirectToConfirmParams
-export type RedirectToParams = PantographTypes.RedirectToParams
-export type RedirectFromAlphaParams = PantographTypes.RedirectFromAlphaParams
-export type RedirectFromOmegaParams = PantographTypes.RedirectFromOmegaParams
-export type RedirectFromEmbarkParams = PantographTypes.RedirectFromEmbarkParams
-export type RedirectFromDebarkParams = PantographTypes.RedirectFromDebarkParams
-export type RedirectFromConfirmParams = PantographTypes.RedirectFromConfirmParams
-export type GraphiteParams = PantographTypes.GraphiteParams
+type RedirectToAlphaParams = PantographTypes.RedirectToAlphaParams
+type RedirectToOmegaParams = PantographTypes.RedirectToOmegaParams
+type RedirectToEmbarkParams = PantographTypes.RedirectToEmbarkParams
+type RedirectToDebarkParams = PantographTypes.RedirectToDebarkParams
+type RedirectToConfirmParams = PantographTypes.RedirectToConfirmParams
+type RedirectToParams = PantographTypes.RedirectToParams
+type RedirectFromAlphaParams = PantographTypes.RedirectFromAlphaParams
+type RedirectFromOmegaParams = PantographTypes.RedirectFromOmegaParams
+type RedirectFromEmbarkParams = PantographTypes.RedirectFromEmbarkParams
+type RedirectFromDebarkParams = PantographTypes.RedirectFromDebarkParams
+type RedirectFromConfirmParams = PantographTypes.RedirectFromConfirmParams
+type GraphiteParams = PantographTypes.GraphiteParams
 
-declare const pantograph: Record<string, Record<string, string>>
+export function getRedirectToAlpha (params: RedirectToAlphaParams): string | undefined
+export function getRedirectToOmega (params: RedirectToOmegaParams): string | undefined
+export function getRedirectToEmbark (params: RedirectToEmbarkParams): string | undefined
+export function getRedirectToDebark (params: RedirectToDebarkParams): string | undefined
+export function getRedirectToConfirm (params: RedirectToConfirmParams): string | undefined
+export function getRedirectTo (params: RedirectToParams): string | undefined
+export function getRedirectFromAlpha (params: RedirectFromAlphaParams): string | undefined
+export function getRedirectFromOmega (params: RedirectFromOmegaParams): string | undefined
+export function getRedirectFromEmbark (params: RedirectFromEmbarkParams): string | undefined
+export function getRedirectFromDebark (params: RedirectFromDebarkParams): string | undefined
+export function getRedirectFromConfirm (params: RedirectFromConfirmParams): string | undefined
+export function graphite (params: GraphiteParams) : string | undefined
 
-export function getRedirectToAlpha (alpha: RedirectToAlphaParams): string | undefined
-export function getRedirectToOmega (omega: RedirectToOmegaParams): string | undefined
-export function getRedirectToEmbark (embark: RedirectToEmbarkParams): string | undefined
-export function getRedirectToDebark (debark: RedirectToDebarkParams): string | undefined
-export function getRedirectToConfirm (confirm: RedirectToConfirmParams): string | undefined
-export function getRedirectTo (to: RedirectToParams): string | undefined
-export function getRedirectFromAlpha (alpha: RedirectFromAlphaParams): string | undefined
-export function getRedirectFromOmega (omega: RedirectFromOmegaParams): string | undefined
-export function getRedirectFromEmbark (embark: RedirectFromEmbarkParams): string | undefined
-export function getRedirectFromDebark (debark: RedirectFromDebarkParams): string | undefined
-export function getRedirectFromConfirm (confirm: RedirectFromConfirmParams): string | undefined
-export function graphite (params: GraphiteParams): string | undefined
-
-export default pantograph
+export { default } from './pantograph.mjs'

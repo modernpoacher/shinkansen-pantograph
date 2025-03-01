@@ -4,4 +4,7 @@ const log = debug('shinkansen-pantograph')
 
 log('`shinkansen` is awake')
 
-export { default as Pantograph } from './pantograph/index.mjs'
+export {
+  default as Pantograph,
+  graphite
+} from './pantograph/index.mjs'
