@@ -16,6 +16,8 @@
  *  @typedef {PantographTypes.RedirectFromDebarkParams} RedirectFromDebarkParams
  *  @typedef {PantographTypes.RedirectFromConfirmParams} RedirectFromConfirmParams
  *  @typedef {PantographTypes.GraphiteParams} GraphiteParams
+ *
+ *  @typedef {PantographTypes.Pantograph.PantographType} PantographType
  */
 
 import debug from 'debug'
@@ -28,7 +30,7 @@ import {
   Rails
 } from 'shinkansen-rails'
 
-import pantograph, {
+import {
   ALPHA,
   OMEGA,
   EMBARK,
@@ -231,4 +233,15 @@ export function graphite ({ action: { type } = ACTION, state = STATE, route = RO
   }
 }
 
-export default Object.freeze(pantograph)
+/**
+ *  @type {PantographType}
+ */
+const Pantograph = {
+  ALPHA,
+  OMEGA,
+  EMBARK,
+  DEBARK,
+  CONFIRM
+}
+
+export default Object.freeze(Pantograph)

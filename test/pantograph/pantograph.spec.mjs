@@ -4,490 +4,491 @@ import {
 } from 'chai'
 import sinonChai from '@sequencemedia/sinon-chai'
 
-import Pantograph from '#pantograph/pantograph/pantograph'
+import {
+  ALPHA,
+  OMEGA,
+  EMBARK,
+  DEBARK,
+  CONFIRM
+} from '#pantograph/pantograph/pantograph'
 
 use(sinonChai)
 
 describe('#pantograph/pantograph/pantograph', () => {
-  it('is an object', () => {
-    return expect(Pantograph)
-      .to.be.an('object')
-  })
-
-  describe('`Pantograph.ALPHA`', () => {
+  describe('`ALPHA`', () => {
     it('is an object', () => {
-      return expect(Pantograph.ALPHA)
+      return expect(ALPHA)
         .to.be.an('object')
     })
 
-    describe('`Pantograph.ALPHA.ERROR`', () => {
+    describe('`ALPHA.ERROR`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.ERROR)
+        return expect(ALPHA.ERROR)
           .to.be.a('string')
       })
 
       it('is `ALPHA_ERROR`', () => {
-        return expect(Pantograph.ALPHA.ERROR)
+        return expect(ALPHA.ERROR)
           .to.equal('ALPHA_ERROR')
       })
     })
 
-    describe('`Pantograph.ALPHA.ROUTE`', () => {
+    describe('`ALPHA.ROUTE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.ROUTE)
+        return expect(ALPHA.ROUTE)
           .to.be.a('string')
       })
 
       it('is `ALPHA_ROUTE`', () => {
-        return expect(Pantograph.ALPHA.ROUTE)
+        return expect(ALPHA.ROUTE)
           .to.equal('ALPHA_ROUTE')
       })
     })
 
-    describe('`Pantograph.ALPHA.MOUNT`', () => {
+    describe('`ALPHA.MOUNT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.MOUNT)
+        return expect(ALPHA.MOUNT)
           .to.be.a('string')
       })
 
       it('is `ALPHA_MOUNT`', () => {
-        return expect(Pantograph.ALPHA.MOUNT)
+        return expect(ALPHA.MOUNT)
           .to.equal('ALPHA_MOUNT')
       })
     })
 
-    describe('`Pantograph.ALPHA.FETCH`', () => {
+    describe('`ALPHA.FETCH`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.FETCH)
+        return expect(ALPHA.FETCH)
           .to.be.a('string')
       })
 
       it('is `ALPHA_FETCH`', () => {
-        return expect(Pantograph.ALPHA.FETCH)
+        return expect(ALPHA.FETCH)
           .to.equal('ALPHA_FETCH')
       })
     })
 
-    describe('`Pantograph.ALPHA.STORE`', () => {
+    describe('`ALPHA.STORE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.STORE)
+        return expect(ALPHA.STORE)
           .to.be.a('string')
       })
 
       it('is `ALPHA_STORE`', () => {
-        return expect(Pantograph.ALPHA.STORE)
+        return expect(ALPHA.STORE)
           .to.equal('ALPHA_STORE')
       })
     })
 
-    describe('`Pantograph.ALPHA.QUERY`', () => {
+    describe('`ALPHA.QUERY`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.QUERY)
+        return expect(ALPHA.QUERY)
           .to.be.a('string')
       })
 
       it('is `ALPHA_QUERY`', () => {
-        return expect(Pantograph.ALPHA.QUERY)
+        return expect(ALPHA.QUERY)
           .to.equal('ALPHA_QUERY')
       })
     })
 
-    describe('`Pantograph.ALPHA.CHANGE`', () => {
+    describe('`ALPHA.CHANGE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.CHANGE)
+        return expect(ALPHA.CHANGE)
           .to.be.a('string')
       })
 
       it('is `ALPHA_CHANGE`', () => {
-        return expect(Pantograph.ALPHA.CHANGE)
+        return expect(ALPHA.CHANGE)
           .to.equal('ALPHA_CHANGE')
       })
     })
 
-    describe('`Pantograph.ALPHA.SUBMIT`', () => {
+    describe('`ALPHA.SUBMIT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.ALPHA.SUBMIT)
+        return expect(ALPHA.SUBMIT)
           .to.be.a('string')
       })
 
       it('is `ALPHA_SUBMIT`', () => {
-        return expect(Pantograph.ALPHA.SUBMIT)
+        return expect(ALPHA.SUBMIT)
           .to.equal('ALPHA_SUBMIT')
       })
     })
   })
 
-  describe('`Pantograph.OMEGA`', () => {
+  describe('`OMEGA`', () => {
     it('is an object', () => {
-      return expect(Pantograph.OMEGA)
+      return expect(OMEGA)
         .to.be.an('object')
     })
 
-    describe('`Pantograph.OMEGA.ERROR`', () => {
+    describe('`OMEGA.ERROR`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.ERROR)
+        return expect(OMEGA.ERROR)
           .to.be.a('string')
       })
 
       it('is `OMEGA_ERROR`', () => {
-        return expect(Pantograph.OMEGA.ERROR)
+        return expect(OMEGA.ERROR)
           .to.equal('OMEGA_ERROR')
       })
     })
 
-    describe('`Pantograph.OMEGA.ROUTE`', () => {
+    describe('`OMEGA.ROUTE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.ROUTE)
+        return expect(OMEGA.ROUTE)
           .to.be.a('string')
       })
 
       it('is `OMEGA_ROUTE`', () => {
-        return expect(Pantograph.OMEGA.ROUTE)
+        return expect(OMEGA.ROUTE)
           .to.equal('OMEGA_ROUTE')
       })
     })
 
-    describe('`Pantograph.OMEGA.MOUNT`', () => {
+    describe('`OMEGA.MOUNT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.MOUNT)
+        return expect(OMEGA.MOUNT)
           .to.be.a('string')
       })
 
       it('is `OMEGA_MOUNT`', () => {
-        return expect(Pantograph.OMEGA.MOUNT)
+        return expect(OMEGA.MOUNT)
           .to.equal('OMEGA_MOUNT')
       })
     })
 
-    describe('`Pantograph.OMEGA.FETCH`', () => {
+    describe('`OMEGA.FETCH`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.FETCH)
+        return expect(OMEGA.FETCH)
           .to.be.a('string')
       })
 
       it('is `OMEGA_FETCH`', () => {
-        return expect(Pantograph.OMEGA.FETCH)
+        return expect(OMEGA.FETCH)
           .to.equal('OMEGA_FETCH')
       })
     })
 
-    describe('`Pantograph.OMEGA.STORE`', () => {
+    describe('`OMEGA.STORE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.STORE)
+        return expect(OMEGA.STORE)
           .to.be.a('string')
       })
 
       it('is `OMEGA_STORE`', () => {
-        return expect(Pantograph.OMEGA.STORE)
+        return expect(OMEGA.STORE)
           .to.equal('OMEGA_STORE')
       })
     })
 
-    describe('`Pantograph.OMEGA.QUERY`', () => {
+    describe('`OMEGA.QUERY`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.QUERY)
+        return expect(OMEGA.QUERY)
           .to.be.a('string')
       })
 
       it('is `OMEGA_QUERY`', () => {
-        return expect(Pantograph.OMEGA.QUERY)
+        return expect(OMEGA.QUERY)
           .to.equal('OMEGA_QUERY')
       })
     })
 
-    describe('`Pantograph.OMEGA.CHANGE`', () => {
+    describe('`OMEGA.CHANGE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.CHANGE)
+        return expect(OMEGA.CHANGE)
           .to.be.a('string')
       })
 
       it('is `OMEGA_CHANGE`', () => {
-        return expect(Pantograph.OMEGA.CHANGE)
+        return expect(OMEGA.CHANGE)
           .to.equal('OMEGA_CHANGE')
       })
     })
 
-    describe('`Pantograph.OMEGA.SUBMIT`', () => {
+    describe('`OMEGA.SUBMIT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.OMEGA.SUBMIT)
+        return expect(OMEGA.SUBMIT)
           .to.be.a('string')
       })
 
       it('is `OMEGA_SUBMIT`', () => {
-        return expect(Pantograph.OMEGA.SUBMIT)
+        return expect(OMEGA.SUBMIT)
           .to.equal('OMEGA_SUBMIT')
       })
     })
   })
 
-  describe('`Pantograph.EMBARK`', () => {
+  describe('`EMBARK`', () => {
     it('is an object', () => {
-      return expect(Pantograph.EMBARK)
+      return expect(EMBARK)
         .to.be.an('object')
     })
 
-    describe('`Pantograph.EMBARK.ERROR`', () => {
+    describe('`EMBARK.ERROR`', () => {
       it('is a string', () => {
-        return expect(Pantograph.EMBARK.ERROR)
+        return expect(EMBARK.ERROR)
           .to.be.a('string')
       })
 
       it('is `EMBARK_ERROR`', () => {
-        return expect(Pantograph.EMBARK.ERROR)
+        return expect(EMBARK.ERROR)
           .to.equal('EMBARK_ERROR')
       })
     })
 
-    describe('`Pantograph.EMBARK.ROUTE`', () => {
+    describe('`EMBARK.ROUTE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.EMBARK.ROUTE)
+        return expect(EMBARK.ROUTE)
           .to.be.a('string')
       })
 
       it('is `EMBARK_ROUTE`', () => {
-        return expect(Pantograph.EMBARK.ROUTE)
+        return expect(EMBARK.ROUTE)
           .to.equal('EMBARK_ROUTE')
       })
     })
 
-    describe('`Pantograph.EMBARK.MOUNT`', () => {
+    describe('`EMBARK.MOUNT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.EMBARK.MOUNT)
+        return expect(EMBARK.MOUNT)
           .to.be.a('string')
       })
 
       it('is `EMBARK_MOUNT`', () => {
-        return expect(Pantograph.EMBARK.MOUNT)
+        return expect(EMBARK.MOUNT)
           .to.equal('EMBARK_MOUNT')
       })
     })
 
-    describe('`Pantograph.EMBARK.FETCH`', () => {
+    describe('`EMBARK.FETCH`', () => {
       it('is a string', () => {
-        return expect(Pantograph.EMBARK.FETCH)
+        return expect(EMBARK.FETCH)
           .to.be.a('string')
       })
 
       it('is `EMBARK_FETCH`', () => {
-        return expect(Pantograph.EMBARK.FETCH)
+        return expect(EMBARK.FETCH)
           .to.equal('EMBARK_FETCH')
       })
     })
 
-    describe('`Pantograph.EMBARK.STORE`', () => {
+    describe('`EMBARK.STORE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.EMBARK.STORE)
+        return expect(EMBARK.STORE)
           .to.be.a('string')
       })
 
       it('is `EMBARK_STORE`', () => {
-        return expect(Pantograph.EMBARK.STORE)
+        return expect(EMBARK.STORE)
           .to.equal('EMBARK_STORE')
       })
     })
 
-    describe('`Pantograph.EMBARK.CHANGE`', () => {
+    describe('`EMBARK.CHANGE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.EMBARK.CHANGE)
+        return expect(EMBARK.CHANGE)
           .to.be.a('string')
       })
 
       it('is `EMBARK_CHANGE`', () => {
-        return expect(Pantograph.EMBARK.CHANGE)
+        return expect(EMBARK.CHANGE)
           .to.equal('EMBARK_CHANGE')
       })
     })
 
-    describe('`Pantograph.EMBARK.SUBMIT`', () => {
+    describe('`EMBARK.SUBMIT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.EMBARK.SUBMIT)
+        return expect(EMBARK.SUBMIT)
           .to.be.a('string')
       })
 
       it('is `EMBARK_SUBMIT`', () => {
-        return expect(Pantograph.EMBARK.SUBMIT)
+        return expect(EMBARK.SUBMIT)
           .to.equal('EMBARK_SUBMIT')
       })
     })
   })
 
-  describe('`Pantograph.DEBARK`', () => {
+  describe('`DEBARK`', () => {
     it('is an object', () => {
-      return expect(Pantograph.DEBARK)
+      return expect(DEBARK)
         .to.be.an('object')
     })
 
-    describe('`Pantograph.DEBARK.ERROR`', () => {
+    describe('`DEBARK.ERROR`', () => {
       it('is a string', () => {
-        return expect(Pantograph.DEBARK.ERROR)
+        return expect(DEBARK.ERROR)
           .to.be.a('string')
       })
 
       it('is `DEBARK_ERROR`', () => {
-        return expect(Pantograph.DEBARK.ERROR)
+        return expect(DEBARK.ERROR)
           .to.equal('DEBARK_ERROR')
       })
     })
 
-    describe('`Pantograph.DEBARK.ROUTE`', () => {
+    describe('`DEBARK.ROUTE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.DEBARK.ROUTE)
+        return expect(DEBARK.ROUTE)
           .to.be.a('string')
       })
 
       it('is `DEBARK_ROUTE`', () => {
-        return expect(Pantograph.DEBARK.ROUTE)
+        return expect(DEBARK.ROUTE)
           .to.equal('DEBARK_ROUTE')
       })
     })
 
-    describe('`Pantograph.DEBARK.MOUNT`', () => {
+    describe('`DEBARK.MOUNT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.DEBARK.MOUNT)
+        return expect(DEBARK.MOUNT)
           .to.be.a('string')
       })
 
       it('is `DEBARK_MOUNT`', () => {
-        return expect(Pantograph.DEBARK.MOUNT)
+        return expect(DEBARK.MOUNT)
           .to.equal('DEBARK_MOUNT')
       })
     })
 
-    describe('`Pantograph.DEBARK.FETCH`', () => {
+    describe('`DEBARK.FETCH`', () => {
       it('is a string', () => {
-        return expect(Pantograph.DEBARK.FETCH)
+        return expect(DEBARK.FETCH)
           .to.be.a('string')
       })
 
       it('is `DEBARK_FETCH`', () => {
-        return expect(Pantograph.DEBARK.FETCH)
+        return expect(DEBARK.FETCH)
           .to.equal('DEBARK_FETCH')
       })
     })
 
-    describe('`Pantograph.DEBARK.STORE`', () => {
+    describe('`DEBARK.STORE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.DEBARK.STORE)
+        return expect(DEBARK.STORE)
           .to.be.a('string')
       })
 
       it('is `DEBARK_STORE`', () => {
-        return expect(Pantograph.DEBARK.STORE)
+        return expect(DEBARK.STORE)
           .to.equal('DEBARK_STORE')
       })
     })
 
-    describe('`Pantograph.DEBARK.CHANGE`', () => {
+    describe('`DEBARK.CHANGE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.DEBARK.CHANGE)
+        return expect(DEBARK.CHANGE)
           .to.be.a('string')
       })
 
       it('is `DEBARK_CHANGE`', () => {
-        return expect(Pantograph.DEBARK.CHANGE)
+        return expect(DEBARK.CHANGE)
           .to.equal('DEBARK_CHANGE')
       })
     })
 
-    describe('`Pantograph.DEBARK.SUBMIT`', () => {
+    describe('`DEBARK.SUBMIT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.DEBARK.SUBMIT)
+        return expect(DEBARK.SUBMIT)
           .to.be.a('string')
       })
 
       it('is `DEBARK_SUBMIT`', () => {
-        return expect(Pantograph.DEBARK.SUBMIT)
+        return expect(DEBARK.SUBMIT)
           .to.equal('DEBARK_SUBMIT')
       })
     })
   })
 
-  describe('`Pantograph.CONFIRM`', () => {
+  describe('`CONFIRM`', () => {
     it('is an object', () => {
-      return expect(Pantograph.CONFIRM)
+      return expect(CONFIRM)
         .to.be.an('object')
     })
 
-    describe('`Pantograph.CONFIRM.ERROR`', () => {
+    describe('`CONFIRM.ERROR`', () => {
       it('is a string', () => {
-        return expect(Pantograph.CONFIRM.ERROR)
+        return expect(CONFIRM.ERROR)
           .to.be.a('string')
       })
 
       it('is `CONFIRM_ERROR`', () => {
-        return expect(Pantograph.CONFIRM.ERROR)
+        return expect(CONFIRM.ERROR)
           .to.equal('CONFIRM_ERROR')
       })
     })
 
-    describe('`Pantograph.CONFIRM.ROUTE`', () => {
+    describe('`CONFIRM.ROUTE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.CONFIRM.ROUTE)
+        return expect(CONFIRM.ROUTE)
           .to.be.a('string')
       })
 
       it('is `CONFIRM_ROUTE`', () => {
-        return expect(Pantograph.CONFIRM.ROUTE)
+        return expect(CONFIRM.ROUTE)
           .to.equal('CONFIRM_ROUTE')
       })
     })
 
-    describe('`Pantograph.CONFIRM.MOUNT`', () => {
+    describe('`CONFIRM.MOUNT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.CONFIRM.MOUNT)
+        return expect(CONFIRM.MOUNT)
           .to.be.a('string')
       })
 
       it('is `CONFIRM_MOUNT`', () => {
-        return expect(Pantograph.CONFIRM.MOUNT)
+        return expect(CONFIRM.MOUNT)
           .to.equal('CONFIRM_MOUNT')
       })
     })
 
-    describe('`Pantograph.CONFIRM.FETCH`', () => {
+    describe('`CONFIRM.FETCH`', () => {
       it('is a string', () => {
-        return expect(Pantograph.CONFIRM.FETCH)
+        return expect(CONFIRM.FETCH)
           .to.be.a('string')
       })
 
       it('is `CONFIRM_FETCH`', () => {
-        return expect(Pantograph.CONFIRM.FETCH)
+        return expect(CONFIRM.FETCH)
           .to.equal('CONFIRM_FETCH')
       })
     })
 
-    describe('`Pantograph.CONFIRM.STORE`', () => {
+    describe('`CONFIRM.STORE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.CONFIRM.STORE)
+        return expect(CONFIRM.STORE)
           .to.be.a('string')
       })
 
       it('is `CONFIRM_STORE`', () => {
-        return expect(Pantograph.CONFIRM.STORE)
+        return expect(CONFIRM.STORE)
           .to.equal('CONFIRM_STORE')
       })
     })
 
-    describe('`Pantograph.CONFIRM.CHANGE`', () => {
+    describe('`CONFIRM.CHANGE`', () => {
       it('is a string', () => {
-        return expect(Pantograph.CONFIRM.CHANGE)
+        return expect(CONFIRM.CHANGE)
           .to.be.a('string')
       })
 
       it('is `CONFIRM_CHANGE`', () => {
-        return expect(Pantograph.CONFIRM.CHANGE)
+        return expect(CONFIRM.CHANGE)
           .to.equal('CONFIRM_CHANGE')
       })
     })
 
-    describe('`Pantograph.CONFIRM.SUBMIT`', () => {
+    describe('`CONFIRM.SUBMIT`', () => {
       it('is a string', () => {
-        return expect(Pantograph.CONFIRM.SUBMIT)
+        return expect(CONFIRM.SUBMIT)
           .to.be.a('string')
       })
 
       it('is `CONFIRM_SUBMIT`', () => {
-        return expect(Pantograph.CONFIRM.SUBMIT)
+        return expect(CONFIRM.SUBMIT)
           .to.equal('CONFIRM_SUBMIT')
       })
     })

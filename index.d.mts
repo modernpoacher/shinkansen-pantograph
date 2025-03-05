@@ -127,6 +127,14 @@ declare global {
         CHANGE: string
         SUBMIT: string
       }
+
+      export interface PantographType {
+        ALPHA: AlphaType
+        OMEGA: OmegaType
+        EMBARK: EmbarkType
+        DEBARK: DebarkType
+        CONFIRM: ConfirmType
+      }
     }
   }
 }

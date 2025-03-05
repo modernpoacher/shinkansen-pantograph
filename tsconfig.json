@@ -6,7 +6,6 @@
     "checkJs": true,
     "noEmit": true,
     "strict": true,
-    "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
       "#pantograph": [
@@ -20,5 +19,11 @@
         "src/pantograph/pantograph.mjs"
       ]
     }
-  }
+  },
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "test/**/*"
+  ]
 }

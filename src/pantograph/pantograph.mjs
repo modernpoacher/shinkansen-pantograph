@@ -4,6 +4,8 @@
  *  @typedef {PantographTypes.Pantograph.EmbarkType} EmbarkType
  *  @typedef {PantographTypes.Pantograph.DebarkType} DebarkType
  *  @typedef {PantographTypes.Pantograph.ConfirmType} ConfirmType
+ *
+ *  @typedef {PantographTypes.Pantograph.PantographType} PantographType
  */
 
 import debug from 'debug'
@@ -79,10 +81,15 @@ export const CONFIRM = {
   SUBMIT: 'CONFIRM_SUBMIT'
 }
 
-export default {
+/**
+ *  @type {PantographType}
+ */
+const Pantograph = {
   ALPHA,
   OMEGA,
   EMBARK,
   DEBARK,
   CONFIRM
 }
+
+export default Pantograph

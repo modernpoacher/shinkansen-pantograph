@@ -1,15 +1,20 @@
+import '#pantograph/pantograph/pantograph'
+
 type RedirectToAlphaParams = PantographTypes.RedirectToAlphaParams
 type RedirectToOmegaParams = PantographTypes.RedirectToOmegaParams
 type RedirectToEmbarkParams = PantographTypes.RedirectToEmbarkParams
 type RedirectToDebarkParams = PantographTypes.RedirectToDebarkParams
 type RedirectToConfirmParams = PantographTypes.RedirectToConfirmParams
 type RedirectToParams = PantographTypes.RedirectToParams
+
 type RedirectFromAlphaParams = PantographTypes.RedirectFromAlphaParams
 type RedirectFromOmegaParams = PantographTypes.RedirectFromOmegaParams
 type RedirectFromEmbarkParams = PantographTypes.RedirectFromEmbarkParams
 type RedirectFromDebarkParams = PantographTypes.RedirectFromDebarkParams
 type RedirectFromConfirmParams = PantographTypes.RedirectFromConfirmParams
 type GraphiteParams = PantographTypes.GraphiteParams
+
+type PantographType = PantographTypes.Pantograph.PantographType
 
 export function getRedirectToAlpha (params: RedirectToAlphaParams): string | undefined
 export function getRedirectToOmega (params: RedirectToOmegaParams): string | undefined
@@ -24,4 +29,6 @@ export function getRedirectFromDebark (params: RedirectFromDebarkParams): string
 export function getRedirectFromConfirm (params: RedirectFromConfirmParams): string | undefined
 export function graphite (params: GraphiteParams) : string | undefined
 
-export { default } from './pantograph.mjs'
+declare const Pantograph: PantographType
+
+export default Pantograph
