@@ -27,7 +27,7 @@ export function getRedirectFromOmega (params: RedirectFromOmegaParams): string |
 export function getRedirectFromEmbark (params: RedirectFromEmbarkParams): string | undefined
 export function getRedirectFromDebark (params: RedirectFromDebarkParams): string | undefined
 export function getRedirectFromConfirm (params: RedirectFromConfirmParams): string | undefined
-export function graphite (params: GraphiteParams) : string | undefined
+export function graphite (params: GraphiteParams): string | undefined
 
 declare const Pantograph: PantographType
 
