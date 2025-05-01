@@ -40,12 +40,12 @@
     "debug": "^4.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/preset-env": "^7.26.9",
-    "@babel/register": "^7.25.9",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.1",
+    "@babel/register": "^7.27.1",
     "@sequencemedia/eslint-config-standard": "^0.2.50",
     "@sequencemedia/eslint-config-typescript": "^0.1.79",
-    "@sequencemedia/sinon-chai": "^0.0.142",
+    "@sequencemedia/sinon-chai": "^0.0.144",
     "@types/babel__register": "^7.17.3",
     "@types/chai": "^5.2.1",
     "@types/debug": "^4.1.12",
@@ -58,8 +58,8 @@
     "globals": "^16.0.0",
     "husky": "^9.1.7",
     "mocha": "^11.1.0",
-    "shinkansen-rails": "1.1.25",
-    "shinkansen-signals": "1.2.24",
+    "shinkansen-rails": "1.1.26",
+    "shinkansen-signals": "1.2.25",
     "sinon": "^20.0.0"
   },
   "imports": {
