@@ -54,12 +54,12 @@
     "chai": "^5.2.0",
     "core-js": "^3.43.0",
     "cross-env": "^7.0.3",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.0",
     "globals": "^16.2.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.1",
-    "shinkansen-rails": "1.1.57",
-    "shinkansen-signals": "1.2.56",
+    "shinkansen-rails": "1.1.58",
+    "shinkansen-signals": "1.2.57",
     "sinon": "^21.0.0"
   },
   "imports": {
