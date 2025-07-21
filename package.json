@@ -44,7 +44,7 @@
     "@babel/preset-env": "^7.28.0",
     "@babel/register": "^7.27.1",
     "@sequencemedia/eslint-config-standard": "^0.2.72",
-    "@sequencemedia/eslint-config-typescript": "^0.1.121",
+    "@sequencemedia/eslint-config-typescript": "^0.1.122",
     "@sequencemedia/sinon-chai": "^0.0.175",
     "@types/babel__register": "^7.17.3",
     "@types/chai": "^5.2.2",
