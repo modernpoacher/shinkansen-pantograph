@@ -58,8 +58,8 @@
     "globals": "^16.3.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.1",
-    "shinkansen-rails": "1.1.78",
-    "shinkansen-signals": "1.2.77",
+    "shinkansen-rails": "1.1.79",
+    "shinkansen-signals": "1.2.78",
     "sinon": "^21.0.0"
   },
   "imports": {
