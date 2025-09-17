@@ -37,15 +37,15 @@
     "test": "cross-env NODE_ENV=test mocha test --recursive"
   },
   "dependencies": {
-    "debug": "^4.4.1"
+    "debug": "^4.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
     "@babel/preset-env": "^7.28.3",
     "@babel/register": "^7.28.3",
-    "@sequencemedia/eslint-config-standard": "^0.2.82",
-    "@sequencemedia/eslint-config-typescript": "^0.1.141",
-    "@sequencemedia/sinon-chai": "^0.0.186",
+    "@sequencemedia/eslint-config-standard": "^0.2.83",
+    "@sequencemedia/eslint-config-typescript": "^0.1.142",
+    "@sequencemedia/sinon-chai": "^0.0.187",
     "@types/babel__register": "^7.17.3",
     "@types/chai": "^5.2.2",
     "@types/debug": "^4.1.12",
