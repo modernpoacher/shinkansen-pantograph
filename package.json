@@ -45,7 +45,7 @@
     "@babel/register": "^7.28.3",
     "@sequencemedia/eslint-config-standard": "^0.2.87",
     "@sequencemedia/eslint-config-typescript": "^0.1.148",
-    "@sequencemedia/sinon-chai": "^0.0.190",
+    "@sequencemedia/sinon-chai": "^0.0.191",
     "@types/babel__register": "^7.17.3",
     "@types/chai": "^5.2.2",
     "@types/debug": "^4.1.12",
@@ -58,8 +58,8 @@
     "globals": "^16.4.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.4",
-    "shinkansen-rails": "1.1.103",
-    "shinkansen-signals": "1.2.102",
+    "shinkansen-rails": "1.1.104",
+    "shinkansen-signals": "1.2.103",
     "sinon": "^21.0.0"
   },
   "imports": {
