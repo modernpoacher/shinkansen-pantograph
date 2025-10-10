@@ -52,14 +52,14 @@
     "@types/mocha": "^10.0.10",
     "@types/sinon": "^17.0.4",
     "chai": "^6.2.0",
-    "core-js": "^3.45.1",
+    "core-js": "^3.46.0",
     "cross-env": "^10.1.0",
     "eslint": "^9.37.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.4",
-    "shinkansen-rails": "1.1.109",
-    "shinkansen-signals": "1.2.108",
+    "shinkansen-rails": "1.1.110",
+    "shinkansen-signals": "1.2.109",
     "sinon": "^21.0.0"
   },
   "imports": {
