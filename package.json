@@ -40,8 +40,8 @@
     "debug": "^4.4.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
     "@babel/register": "^7.28.6",
     "@sequencemedia/eslint-config-standard": "^0.2.107",
     "@sequencemedia/eslint-config-typescript": "^0.1.182",
@@ -55,7 +55,7 @@
     "core-js": "^3.48.0",
     "cross-env": "^10.1.0",
     "eslint": "9.38.0",
-    "globals": "^17.2.0",
+    "globals": "^17.3.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.5",
     "shinkansen-rails": "1.1.130",
