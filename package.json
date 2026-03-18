@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
     "@babel/register": "^7.28.6",
     "@sequencemedia/eslint-config-standard": "^0.2.107",
     "@sequencemedia/eslint-config-typescript": "^0.1.182",
@@ -52,7 +52,7 @@
     "@types/mocha": "^10.0.10",
     "@types/sinon": "^21.0.0",
     "chai": "^6.2.2",
-    "core-js": "^3.48.0",
+    "core-js": "^3.49.0",
     "cross-env": "^10.1.0",
     "eslint": "9.38.0",
     "globals": "^17.4.0",
@@ -60,7 +60,7 @@
     "mocha": "^11.7.5",
     "shinkansen-rails": "1.1.130",
     "shinkansen-signals": "1.2.129",
-    "sinon": "^21.0.2"
+    "sinon": "^21.0.3"
   },
   "imports": {
     "#pantograph": {
