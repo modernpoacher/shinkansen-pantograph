@@ -48,7 +48,7 @@
     "@sequencemedia/sinon-chai": "^0.0.213",
     "@types/babel__register": "^7.17.3",
     "@types/chai": "^5.2.3",
-    "@types/debug": "^4.1.12",
+    "@types/debug": "^4.1.13",
     "@types/mocha": "^10.0.10",
     "@types/sinon": "^21.0.0",
     "chai": "^6.2.2",
