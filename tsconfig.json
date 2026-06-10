@@ -6,17 +6,16 @@
     "checkJs": true,
     "noEmit": true,
     "strict": true,
-    "baseUrl": ".",
     "paths": {
       "#pantograph": [
-        "src/index.cjs",
-        "src/index.mjs"
+        "./src/index.cjs",
+        "./src/index.mjs"
       ],
       "#pantograph/pantograph": [
-        "src/pantograph/index.mjs"
+        "./src/pantograph/index.mjs"
       ],
       "#pantograph/pantograph/pantograph": [
-        "src/pantograph/pantograph.mjs"
+        "./src/pantograph/pantograph.mjs"
       ]
     }
   },
