@@ -32,7 +32,7 @@
     "lint:fix": "npm run lint -- --fix",
     "nvm": "bash nvm.sh",
     "prelint": "npm run nvm",
-    "prepare": "husky",
+    "prepare": "node husky.mjs",
     "pretest": "npm run nvm",
     "test": "cross-env NODE_ENV=test mocha test --recursive"
   },
