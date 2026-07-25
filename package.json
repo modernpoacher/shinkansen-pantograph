@@ -60,7 +60,7 @@
     "mocha": "^11.7.6",
     "shinkansen-rails": "1.1.130",
     "shinkansen-signals": "1.2.129",
-    "sinon": "^22.0.0"
+    "sinon": "^22.1.0"
   },
   "imports": {
     "#pantograph": {
