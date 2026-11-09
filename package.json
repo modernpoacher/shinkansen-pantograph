@@ -77,5 +77,8 @@
     },
     "./pantograph": "./src/pantograph/index.mjs",
     "./pantograph/*": "./src/pantograph/*.mjs"
+  },
+  "allowScripts": {
+    "core-js@3.51.0": true
   }
 }
