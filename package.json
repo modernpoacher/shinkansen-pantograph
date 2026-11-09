@@ -36,6 +36,9 @@
     "pretest": "npm run nvm",
     "test": "cross-env NODE_ENV=test mocha test --recursive"
   },
+  "allowScripts": {
+    "core-js@3.51.0": true
+  },
   "dependencies": {
     "debug": "^4.4.3"
   },
@@ -58,8 +61,8 @@
     "globals": "^17.14.0",
     "husky": "^9.1.7",
     "mocha": "^12.0.3",
-    "shinkansen-rails": "1.1.188",
-    "shinkansen-signals": "1.2.183",
+    "shinkansen-rails": "1.1.189",
+    "shinkansen-signals": "1.2.184",
     "sinon": "^22.1.0"
   },
   "imports": {
@@ -77,8 +80,5 @@
     },
     "./pantograph": "./src/pantograph/index.mjs",
     "./pantograph/*": "./src/pantograph/*.mjs"
-  },
-  "allowScripts": {
-    "core-js@3.51.0": true
   }
 }
