@@ -987,7 +987,8 @@ describe('#pantograph/pantograph', () => {
 
     beforeEach(() => {
       redirect = {
-        [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
+        [Signals.ALPHA]: 'MOCK ALPHA',
+        [Signals.OMEGA]: 'MOCK OMEGA'
       }
 
       sinon.stub(Rails, 'to')
@@ -1230,7 +1231,8 @@ describe('#pantograph/pantograph', () => {
     describe('`redirect` has `Signals.ALPHA` and `Signals.OMEGA`', () => {
       it('invokes `Rails.to()`', () => {
         const redirect = {
-          [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
+          [Signals.ALPHA]: 'MOCK ALPHA',
+          [Signals.OMEGA]: 'MOCK OMEGA'
         }
 
         getRedirectTo({ redirect, route })
@@ -1312,7 +1314,8 @@ describe('#pantograph/pantograph', () => {
     describe('`action.type` is `OMEGA.ROUTE`', () => {
       it('invokes `Rails.to()`', () => {
         const redirect = {
-          [Signals.ALPHA]: 'MOCK ALPHA', [Signals.OMEGA]: 'MOCK OMEGA'
+          [Signals.ALPHA]: 'MOCK ALPHA',
+          [Signals.OMEGA]: 'MOCK OMEGA'
         }
 
         graphite({ action: { type: Pantograph.OMEGA.ROUTE }, state: { [Signals.OMEGA]: { redirect } }, route })
